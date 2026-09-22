@@ -1,4 +1,4 @@
 void main() {
-Room room = new Room();
-room.startGame();
+Adventure adventure = new Adventure();
+adventure.startGame();
 }
