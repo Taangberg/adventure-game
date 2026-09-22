@@ -20,35 +20,35 @@ public class Room {
     }
 
     public Room setNorth(Room room) {
-        return room;
+        return north;
     }
 
     public Room getNorth() {
-        return Room;
+        return north;
     }
 
     public Room setSouth(Room room) {
-        return room;
+        return south;
     }
 
     public Room getSouth() {
-        return Room;
+        return south;
     }
 
     public Room setEast(Room room) {
-        return room;
+        return east;
     }
 
     public Room getEast() {
-        return Room;
+        return east;
     }
 
     public Room setWest(Room room) {
-        return room;
+        return east;
     }
 
     public Room getWest() {
-        return Room;
+        return east;
     }
 
 }
