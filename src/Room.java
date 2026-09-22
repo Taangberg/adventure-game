@@ -15,6 +15,18 @@ public class Room {
                     IO.println("Going north!");
                     IO.println("Arrived at added room");
                 }
+                case "GO SOUTH" -> {
+                    IO.println("Going south");
+                    IO.println("Arrived at added room");
+                }
+                case "GO WEST" -> {
+                    IO.println("Going west");
+                    IO.println("Arrived at added room");
+                }
+                case "GO EAST" -> {
+                    IO.println("Going east");
+                    IO.println("Arrived at added room");
+                }
             }
 
         }
