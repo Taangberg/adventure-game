@@ -3,7 +3,10 @@ public class GameUI {
     boolean gameIsRunning = true;
 
     public void startGame() {
-        IO.println("Welcome to game + description of game\n");
+        Adventure adventure = new Adventure();
+        Room currentRoom = adventure.getCurrentRoom();
+
+        IO.println("Welcome to game + description of game\n" + currentRoom);
         String name = IO.readln("What is your name? ");
         IO.println("\nHello "+ name + "\nTo move around the labyrinth, type: 'GO' + direction");
 
@@ -14,7 +17,7 @@ public class GameUI {
             switch (commando) {
                 case "GO NORTH" -> {
                     IO.println("Going north!");
-                    if (!adventure.goNorth){
+                    if (!adventure.goNorth()){
                         IO.println("There is no way for me to go north");
                         return;
                     }
@@ -22,7 +25,7 @@ public class GameUI {
                 }
                 case "GO SOUTH" -> {
                     IO.println("Going south");
-                    if (!adventure.goSouth){
+                    if (!adventure.goSouth()){
                         IO.println("There is no way for me to go south");
                         return;
                     }
@@ -30,7 +33,7 @@ public class GameUI {
                 }
                 case "GO WEST" -> {
                     IO.println("Going west");
-                    if (!adventure.goWest){
+                    if (!adventure.goWest()){
                         IO.println("There is no way for me to go west");
                         return;
                     }
@@ -38,7 +41,7 @@ public class GameUI {
                 }
                 case "GO EAST" -> {
                     IO.println("Going east");
-                    if (!adventure.goEast){
+                    if (!adventure.goEast()){
                         IO.println("There is no way for me to go east");
                         return;
                     }
