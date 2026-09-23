@@ -1,4 +1,5 @@
 public class Adventure {
+
     boolean gameIsRunning = true;
 
     public void startGame() {

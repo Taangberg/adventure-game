@@ -44,10 +44,10 @@ public class Room {
     }
 
     public Room setWest(Room room) {
-        return east;
+        return west;
     }
 
     public Room getWest() {
-        return east;
+        return west;
     }
 }
