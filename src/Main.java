@@ -1,4 +1,4 @@
 void main() {
-    Adventure adventure = new Adventure();
+    GameUI adventure = new GameUI();
     adventure.startGame();
 }
