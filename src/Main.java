@@ -1,4 +1,4 @@
 void main() {
-Adventure adventure = new Adventure();
-adventure.startGame();
+    Adventure adventure = new Adventure();
+    adventure.startGame();
 }
