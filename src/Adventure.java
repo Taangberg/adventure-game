@@ -1,5 +1,5 @@
 public class Adventure {
-    private Room currentRoom;
+    private Room currentRoom = new Room("1", "a peacful place with two paths");
 
 
     public Room getCurrentRoom() {
@@ -20,8 +20,7 @@ public class Adventure {
 
         currentRoom = room1;
 
-        room1.setEast(room2);
-        room1.setSouth(room4);
+        room1.setEast(room2).setSouth(room4);
         room2.setWest(room1).setEast(room3);
         room3.setWest(room2).setSouth(room6);
         room4.setNorth(room1).setSouth(room7);
