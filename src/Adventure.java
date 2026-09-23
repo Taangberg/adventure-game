@@ -1,11 +1,11 @@
 public class Adventure {
-    boolean gameIsRunning = false;
+    boolean gameIsRunning = true;
 
     public void startGame() {
         IO.println("Welcome to game");
         IO.println("Type which direction you would like to go");
 
-        while (!gameIsRunning) {
+        while (gameIsRunning) {
 
             String commando = IO.readln().toUpperCase();
 
@@ -27,7 +27,6 @@ public class Adventure {
                     IO.println("Arrived at added room");
                 }
             }
-
         }
     }
 }
