@@ -30,9 +30,7 @@ Room currentRoom = new Room("1", "This room is a very peaceful place, with two p
                     IO.println("Arrived at added room");
                 }
                 case "LOOK" -> {
-                    IO.println("You are in currentRoom");
-                    IO.println("Looking around");
-                    IO.println("Description of currentRoom");
+                    IO.println(currentRoom);
                 }
                 case "HELP" -> {
                     IO.println("To move around type: 'GO' + direction");
@@ -43,7 +41,7 @@ Room currentRoom = new Room("1", "This room is a very peaceful place, with two p
                     IO.println("Thanks for playing.");
                     IO.println("Goodbye");
                     gameIsRunning = false;
-                    IO.println(currentRoom);
+
                 }
             }
         }
