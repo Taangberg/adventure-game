@@ -1,7 +1,7 @@
 public class Adventure {
     private Room currentRoom;
 
-    public Adventure(){
+    public Adventure() {
         createLabyrinth();
     }
 
