@@ -44,10 +44,15 @@ public class Room {
     }
 
     public Room setWest(Room room) {
-        return east;
+        return west;
     }
 
     public Room getWest() {
-        return east;
+        return west;
+    }
+
+    @Override
+    public String toString() {
+        return "You are in room " + name + " \n" + description;
     }
 }
