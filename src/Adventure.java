@@ -20,6 +20,15 @@ public class Adventure {
 
         currentRoom=room1;
 
+        room1.setEast(room2).setSouth(room4);
+        room2.setWest(room1).setEast(room3);
+        room3.setWest(room2).setSouth(room6);
+        room4.setNorth(room1).setSouth(room7);
+        room5.setSouth(room8);
+        room6.setNorth(room3).setSouth(room9);
+        room7.setNorth(room4).setEast(room8);
+        room8.setWest(room7).setNorth(room5).setEast(room9);
+        room9.setNorth(room6).setWest(room8);
     }
 
 }
