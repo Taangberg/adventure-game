@@ -1,4 +1,5 @@
 public class Adventure {
+Room currentRoom = new Room("1", "This room is a very peaceful place, with two paths");
 
     boolean gameIsRunning = true;
 
@@ -26,6 +27,9 @@ public class Adventure {
                 case "GO EAST" -> {
                     IO.println("Going east");
                     IO.println("Arrived at added room");
+                }
+                case "LOOK" -> {
+                    IO.println(currentRoom);
                 }
             }
         }
