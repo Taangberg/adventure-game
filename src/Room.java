@@ -50,4 +50,9 @@ public class Room {
     public Room getWest() {
         return west;
     }
+
+    @Override
+    public String toString() {
+        return "You are in room " + name + " \n" + description;
+    }
 }
