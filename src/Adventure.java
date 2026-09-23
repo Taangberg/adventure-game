@@ -1,6 +1,9 @@
 public class Adventure {
-    private Room currentRoom = new Room("1", "a peacful place with two paths");
+    private Room currentRoom;
 
+    public Adventure(){
+        createLabyrinth();
+    }
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -17,6 +20,7 @@ public class Adventure {
         Room room7 = new Room("7", "a place, with two paths");
         Room room8 = new Room("8", "a confusing, with 3 paths");
         Room room9 = new Room("9", "a stripclub, with two paths");
+
 
         currentRoom = room1;
 
