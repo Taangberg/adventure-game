@@ -19,32 +19,32 @@ public class Room {
         return description;
     }
 
-    public Room setNorth(Room room) {
-        return north;
+    public void setNorth(Room room) {
+       this.north=room;
     }
 
     public Room getNorth() {
         return north;
     }
 
-    public Room setSouth(Room room) {
-        return south;
+    public void setSouth(Room room) {
+        this.south=room;
     }
 
     public Room getSouth() {
         return south;
     }
 
-    public Room setEast(Room room) {
-        return east;
+    public void setEast(Room room) {
+        this.east=room;
     }
 
     public Room getEast() {
         return east;
     }
 
-    public Room setWest(Room room) {
-       return west;
+    public void setWest(Room room) {
+        this.west=room;
     }
 
     public Room getWest() {

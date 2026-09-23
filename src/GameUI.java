@@ -21,7 +21,7 @@ public class GameUI {
                         IO.println("There is no way for me to go north");
                         return;
                     }
-                    IO.println("Arrived at added room");
+                    IO.println("Arrived at added " + currentRoom);
                 }
                 case "GO SOUTH" -> {
                     IO.println("Going south");
@@ -29,7 +29,7 @@ public class GameUI {
                         IO.println("There is no way for me to go south");
                         return;
                     }
-                    IO.println("Arrived at added room");
+                    IO.println("Arrived at added room " + currentRoom);
                 }
                 case "GO WEST" -> {
                     IO.println("Going west");
@@ -48,7 +48,7 @@ public class GameUI {
                     IO.println("Arrived at added room");
                 }
                 case "LOOK" -> {
-                    IO.println();
+                    IO.println(currentRoom);
                 }
                 case "HELP" -> {
                     IO.println("To move around type: 'GO' + direction");

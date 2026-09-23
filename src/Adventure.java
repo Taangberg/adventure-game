@@ -7,7 +7,6 @@ public class Adventure {
 
     public Room getCurrentRoom() {
         return currentRoom;
-
     }
 
     private void createLabyrinth() {
@@ -21,18 +20,26 @@ public class Adventure {
         Room room8 = new Room("8", "a confusing, with 3 paths");
         Room room9 = new Room("9", "a stripclub, with two paths");
 
-
         currentRoom = room1;
 
-        room1.setEast(room2).setSouth(room4);
-        room2.setWest(room1).setEast(room3);
-        room3.setWest(room2).setSouth(room6);
-        room4.setNorth(room1).setSouth(room7);
+        room1.setEast(room2);
+       room1.setSouth(room4);
+        room2.setWest(room1);
+        room2.setEast(room3);
+        room3.setWest(room2);
+        room3.setSouth(room6);
+        room4.setNorth(room1);
+        room4.setSouth(room7);
         room5.setSouth(room8);
-        room6.setNorth(room3).setSouth(room9);
-        room7.setNorth(room4).setEast(room8);
-        room8.setWest(room7).setNorth(room5).setEast(room9);
-        room9.setNorth(room6).setWest(room8);
+        room6.setNorth(room3);
+        room6.setSouth(room9);
+        room7.setNorth(room4);
+        room7.setEast(room8);
+        room8.setWest(room7);
+        room8.setNorth(room5);
+        room8.setEast(room9);
+        room9.setNorth(room6);
+        room9.setWest(room8);
     }
 
     public boolean goNorth() {
