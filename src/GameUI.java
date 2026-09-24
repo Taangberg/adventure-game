@@ -4,7 +4,6 @@ public class GameUI {
 
     public void startGame() {
         Adventure adventure = new Adventure();
-        Room currentRoom = adventure.getCurrentRoom();
 
         IO.println("Welcome to game + description of game\n");
         String name = IO.readln("What is your name? ");
@@ -13,6 +12,7 @@ public class GameUI {
         while (gameIsRunning) {
 
             String commando = IO.readln().toUpperCase();
+            Room currentRoom = adventure.getCurrentRoom();
 
             switch (commando) {
                 case "GO NORTH" -> {
