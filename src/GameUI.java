@@ -4,50 +4,51 @@ public class GameUI {
 
     public void startGame() {
         Adventure adventure = new Adventure();
-
+        
         IO.println("Welcome to game + description of game\n");
         String name = IO.readln("What is your name? ");
-        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: 'GO' + direction");
+        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: 'GO' + direction \n");
+        IO.println(adventure.getCurrentRoom());
 
         while (gameIsRunning) {
 
             String commando = IO.readln().toUpperCase();
-            Room currentRoom = adventure.getCurrentRoom();
+
             switch (commando) {
                 case "GO NORTH" -> {
-                    IO.println("Going north!");
                     if (!adventure.goNorth()) {
                         IO.println("There is no way for me to go north");
-                        return;
+                    } else {
+                        IO.println("Going north!");
+                        IO.println(adventure.getCurrentRoom());
                     }
-                    IO.println(currentRoom);
                 }
                 case "GO SOUTH" -> {
-                    IO.println("Going south");
                     if (!adventure.goSouth()) {
                         IO.println("There is no way for me to go south");
-                        return;
+                    } else {
+                        IO.println("Going south");
+                        IO.println(adventure.getCurrentRoom());
                     }
-                    IO.println(currentRoom);
                 }
                 case "GO WEST" -> {
-                    IO.println("Going west");
                     if (!adventure.goWest()) {
                         IO.println("There is no way for me to go west");
-                        return;
+                    } else {
+                        IO.println("Going west");
+                        IO.println(adventure.getCurrentRoom());
                     }
-                    IO.println(currentRoom);
                 }
                 case "GO EAST" -> {
-                    IO.println("Going east");
                     if (!adventure.goEast()) {
                         IO.println("There is no way for me to go east");
-                        return;
+                    } else {
+                        IO.println("Going east");
+                        IO.println(adventure.getCurrentRoom());
                     }
-                  //  IO.println(currentRoom);
                 }
                 case "LOOK" -> {
-                    IO.println(currentRoom);
+                    IO.println(adventure.getCurrentRoom());
                 }
                 case "HELP" -> {
                     IO.println("To move around type: 'GO' + direction");
@@ -58,7 +59,6 @@ public class GameUI {
                     IO.println("Thanks for playing.");
                     IO.println("Goodbye");
                     gameIsRunning = false;
-
                 }
             }
         }
