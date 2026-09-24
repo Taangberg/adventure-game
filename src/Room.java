@@ -11,12 +11,8 @@ public class Room {
         this.description = description;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
+    public String getRoom() {
+        return "Room " + name + " " + description;
     }
 
     public void setNorth(Room room) {
@@ -51,8 +47,7 @@ public class Room {
         return west;
     }
 
-    @Override
-    public String toString() {
-        return "You are in room " + name + " \n" + description;
-    }
+//    public String toString() {
+//        return "You are in room " + name + " \n" + description;
+//    }
 }
