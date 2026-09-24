@@ -13,7 +13,6 @@ public class GameUI {
 
             String commando = IO.readln().toUpperCase();
             Room currentRoom = adventure.getCurrentRoom();
-
             switch (commando) {
                 case "GO NORTH" -> {
                     IO.println("Going north!");
@@ -45,7 +44,7 @@ public class GameUI {
                         IO.println("There is no way for me to go east");
                         return;
                     }
-                    IO.println(currentRoom);
+                  //  IO.println(currentRoom);
                 }
                 case "LOOK" -> {
                     IO.println(currentRoom);
