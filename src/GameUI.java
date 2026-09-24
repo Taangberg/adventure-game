@@ -6,9 +6,9 @@ public class GameUI {
         Adventure adventure = new Adventure();
         Room currentRoom = adventure.getCurrentRoom();
 
-        IO.println("Welcome to game + description of game\n" + currentRoom);
+        IO.println("Welcome to game + description of game\n");
         String name = IO.readln("What is your name? ");
-        IO.println("\nHello "+ name + "\nTo move around the labyrinth, type: 'GO' + direction");
+        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: 'GO' + direction");
 
         while (gameIsRunning) {
 
@@ -17,35 +17,35 @@ public class GameUI {
             switch (commando) {
                 case "GO NORTH" -> {
                     IO.println("Going north!");
-                    if (!adventure.goNorth()){
+                    if (!adventure.goNorth()) {
                         IO.println("There is no way for me to go north");
                         return;
                     }
-                    IO.println("Arrived at added " + currentRoom);
+                    IO.println(currentRoom);
                 }
                 case "GO SOUTH" -> {
                     IO.println("Going south");
-                    if (!adventure.goSouth()){
+                    if (!adventure.goSouth()) {
                         IO.println("There is no way for me to go south");
                         return;
                     }
-                    IO.println("Arrived at added room " + currentRoom);
+                    IO.println(currentRoom);
                 }
                 case "GO WEST" -> {
                     IO.println("Going west");
-                    if (!adventure.goWest()){
+                    if (!adventure.goWest()) {
                         IO.println("There is no way for me to go west");
                         return;
                     }
-                    IO.println("Arrived at added room");
+                    IO.println(currentRoom);
                 }
                 case "GO EAST" -> {
                     IO.println("Going east");
-                    if (!adventure.goEast()){
+                    if (!adventure.goEast()) {
                         IO.println("There is no way for me to go east");
                         return;
                     }
-                    IO.println("Arrived at added room");
+                    IO.println(currentRoom);
                 }
                 case "LOOK" -> {
                     IO.println(currentRoom);

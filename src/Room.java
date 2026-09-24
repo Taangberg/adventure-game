@@ -20,7 +20,7 @@ public class Room {
     }
 
     public void setNorth(Room room) {
-       this.north=room;
+        this.north = room;
     }
 
     public Room getNorth() {
@@ -28,7 +28,7 @@ public class Room {
     }
 
     public void setSouth(Room room) {
-        this.south=room;
+        this.south = room;
     }
 
     public Room getSouth() {
@@ -36,7 +36,7 @@ public class Room {
     }
 
     public void setEast(Room room) {
-        this.east=room;
+        this.east = room;
     }
 
     public Room getEast() {
@@ -44,7 +44,7 @@ public class Room {
     }
 
     public void setWest(Room room) {
-        this.west=room;
+        this.west = room;
     }
 
     public Room getWest() {
