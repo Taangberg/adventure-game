@@ -17,7 +17,7 @@ public class WorldMap {
 
         ArrayList<Item> room2Items = new ArrayList<>();
         room2Items.add(new Item("a hook", "a long hook to climb the mountain"));
-        room2Items.add(new Item("a ladder","a small ladder"));
+        room2Items.add(new Item("a ladder", "a small ladder"));
 
         ArrayList<Item> room3Items = new ArrayList<>();
         room3Items.add(new Item("a flashlight", "a torch"));

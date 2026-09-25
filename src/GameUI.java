@@ -15,6 +15,7 @@ public class GameUI {
         IO.println("To get information about the current room, type: 'LOOK'");
         IO.println("To stop the current game type: 'EXIT'");
     }
+
     public void exit() {
         IO.println("Thanks for playing.");
         IO.println("Goodbye");
