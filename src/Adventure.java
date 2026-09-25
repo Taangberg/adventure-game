@@ -13,7 +13,8 @@ public class Adventure {
 
     public void startGame() {
 
-        gameUI.Velkomst();
+
+        gameUI.welcome();
 
         IO.println("You are currently in\n" + player.whereAreYou());
 
@@ -39,8 +40,7 @@ public class Adventure {
                     gameUI.help();
                 }
                 case "EXIT" -> {
-                    IO.println("Thanks for playing.");
-                    IO.println("Goodbye");
+                    gameUI.exit();
                     gameIsRunning = false;
                 }
             }
