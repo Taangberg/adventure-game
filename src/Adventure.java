@@ -29,7 +29,7 @@ public class Adventure {
                 }
                 case "GO WEST" -> {
                     IO.println(!player.goWest() ? "There is no way for me to go west" : "Going west\n" + player.whereAreYou());
-            }
+                }
                 case "GO EAST" -> {
                     IO.println(!player.goEast() ? "There is no way for me to go east" : "Going east\n" + player.whereAreYou());
                 }

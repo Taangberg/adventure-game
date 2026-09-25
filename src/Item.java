@@ -6,12 +6,15 @@ public class Item {
         this.name = name;
         this.description = description;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return description;
     }
+
     public String toString() {
         return description;
     }
