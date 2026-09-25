@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+
 public class Player {
     private Room currentRoom;
+    ArrayList<Item> inventory;
 
-    public Player(Room firstRoom) {
+    public Player(Room firstRoom, ArrayList<Item> inventory) {
         this.currentRoom = firstRoom;
+        this.inventory = inventory;
     }
 
     public String whereAreYou() {
