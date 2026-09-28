@@ -4,9 +4,9 @@ public class Player {
     private Room currentRoom;
     ArrayList<Item> inventory;
 
-    public Player(Room firstRoom, ArrayList<Item> inventory) {
+    public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
-        this.inventory = inventory;
+        this.inventory = new ArrayList<>();
     }
 
     public String whereAreYou() {
@@ -44,5 +44,4 @@ public class Player {
         currentRoom = currentRoom.getWest();
         return true;
     }
-
 }

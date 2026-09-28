@@ -50,8 +50,6 @@ public class Room {
     public Room getWest() {
         return west;
     }
-
-
 //    public String toString() {
 //        return "You are in room " + name + " \n" + description;
 //    }
