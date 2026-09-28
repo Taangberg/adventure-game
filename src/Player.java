@@ -9,10 +9,6 @@ public class Player {
         this.inventory = new ArrayList<>();
     }
 
-    public String whereAreYou() {
-        return currentRoom.getRoom();
-    }
-
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -53,6 +49,17 @@ public class Player {
         inventory.add(item);
     }
 
+    public Item removeItem(String itemName) {
+        for (int i = 0; i < inventory.size(); i++) {
+            Item item = inventory.get(i);
+
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                inventory.remove(i);
+                return item;
+            }
+        }
+        return null;
+    }
 //    public boolean takeItem(String itemName) {
 //        Item item = currentRoom.takeItem(itemName);
 //

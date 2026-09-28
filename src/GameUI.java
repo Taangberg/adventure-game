@@ -10,10 +10,6 @@ public class GameUI {
         return IO.readln().toUpperCase();
     }
 
-    public String take() {
-        return IO.readln().toUpperCase();
-    }
-
     public void help() {
         IO.println("To move around type: 'GO' + direction");
         IO.println("To get information about the current room, type: 'LOOK'");

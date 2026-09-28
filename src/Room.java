@@ -62,4 +62,8 @@ public class Room {
         }
         return null;
     }
+
+    public String toString() {
+        return "Room " + name + " - " + description + "\n" + items;
+    }
 }

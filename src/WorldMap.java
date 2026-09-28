@@ -44,15 +44,15 @@ public class WorldMap {
         room9Items.add(new Item("pingball", "a wierd smelly pingball"));
 
 
-        room1 = new Room("1", "a peaceful place with two paths", room1Items);
-        Room room2 = new Room("2", "a dangerous mountain cliff with two paths", room2Items);
-        Room room3 = new Room("3", "a spooky dark forest, with two paths", room3Items);
-        Room room4 = new Room("4", "a scary graveyard, with two paths", room4Items);
-        Room room5 = new Room("5", "you came to the wonderful beach", room5Items);
-        Room room6 = new Room("6", "a weird place, with two paths", room6Items);
-        Room room7 = new Room("7", "a place, with two paths", room7Items);
-        Room room8 = new Room("8", "a confusing, with 3 paths", room8Items);
-        Room room9 = new Room("9", "a stripclub, with two paths", room9Items);
+        room1 = new Room("1", "A peaceful place with two paths", room1Items);
+        Room room2 = new Room("2", "A dangerous mountain cliff with two paths", room2Items);
+        Room room3 = new Room("3", "A spooky dark forest, with two paths", room3Items);
+        Room room4 = new Room("4", "A scary graveyard, with two paths", room4Items);
+        Room room5 = new Room("5", "You came to the wonderful beach", room5Items);
+        Room room6 = new Room("6", "A weird place, with two paths", room6Items);
+        Room room7 = new Room("7", "A place, with two paths", room7Items);
+        Room room8 = new Room("8", "A confusing, with 3 paths", room8Items);
+        Room room9 = new Room("9", "A stripclub, with two paths", room9Items);
 
 
         room1.setEast(room2);
