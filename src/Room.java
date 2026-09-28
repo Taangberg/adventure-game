@@ -15,10 +15,6 @@ public class Room {
         this.items = items;
     }
 
-    public String getRoom() {
-        return "Room " + name + " " + description + "\n" + items;
-    }
-
     public void setNorth(Room room) {
         this.north = room;
     }
@@ -51,8 +47,23 @@ public class Room {
         return west;
     }
 
+    public Item takeItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
 
-//    public String toString() {
-//        return "You are in room " + name + " \n" + description;
-//    }
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                items.remove(i);
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void addToRoom(Item item) {
+        items.add(item);
+    }
+
+    public String toString() {
+        return "Room " + name + " - " + description + "\n" + items;
+    }
 }

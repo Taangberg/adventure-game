@@ -4,13 +4,13 @@ public class Player {
     private Room currentRoom;
     ArrayList<Item> inventory;
 
-    public Player(Room firstRoom, ArrayList<Item> inventory) {
+    public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
-        this.inventory = inventory;
+        this.inventory = new ArrayList<>();
     }
 
-    public String whereAreYou() {
-        return currentRoom.getRoom();
+    public Room getCurrentRoom() {
+        return currentRoom;
     }
 
     public boolean goNorth() {
@@ -45,4 +45,19 @@ public class Player {
         return true;
     }
 
+    public void addToInventory(Item item) {
+        inventory.add(item);
+    }
+
+    public Item removeItem(String itemName) {
+        for (int i = 0; i < inventory.size(); i++) {
+            Item item = inventory.get(i);
+
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                inventory.remove(i);
+                return item;
+            }
+        }
+        return null;
+    }
 }

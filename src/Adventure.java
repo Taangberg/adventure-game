@@ -16,25 +16,52 @@ public class Adventure {
 
         gameUI.welcome();
 
-        IO.println("You are currently in\n" + player.whereAreYou());
+        IO.println("You are currently in\n" + player.getCurrentRoom());
 
         while (gameIsRunning) {
 
             switch (gameUI.userInput()) {
                 case "GO NORTH" -> {
-                    IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north!\n" + player.whereAreYou());
+                    IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north!\n" + player.getCurrentRoom());
                 }
                 case "GO SOUTH" -> {
-                    IO.println(!player.goSouth() ? "There is no way for me to go south" : "Going south\n" + player.whereAreYou());
+                    IO.println(!player.goSouth() ? "There is no way for me to go south" : "Going south\n" + player.getCurrentRoom());
                 }
                 case "GO WEST" -> {
-                    IO.println(!player.goWest() ? "There is no way for me to go west" : "Going west\n" + player.whereAreYou());
+                    IO.println(!player.goWest() ? "There is no way for me to go west" : "Going west\n" + player.getCurrentRoom());
                 }
                 case "GO EAST" -> {
-                    IO.println(!player.goEast() ? "There is no way for me to go east" : "Going east\n" + player.whereAreYou());
+                    IO.println(!player.goEast() ? "There is no way for me to go east" : "Going east\n" + player.getCurrentRoom());
                 }
                 case "LOOK" -> {
-                    IO.println(player.whereAreYou());
+                    IO.println(player.getCurrentRoom());
+                }
+                case "TAKE" -> {
+                    String itemOnGround = gameUI.userInput();
+                    Room currentRoom = player.getCurrentRoom();
+                    Item item = currentRoom.takeItem(itemOnGround);
+
+                    if (item == null) {
+                        IO.println(itemOnGround + " not found");
+                    } else {
+                        IO.println(itemOnGround + " added to your inventory");
+                        player.addToInventory(item);
+                    }
+                }
+                case "REMOVE" -> {
+                    String itemToDrop = gameUI.userInput();
+                    Room currentRoom = player.getCurrentRoom();
+                    Item item = player.removeItem(itemToDrop);
+
+                    if (item == null) {
+                        IO.println(itemToDrop + " not in your inventory");
+                    } else {
+                        IO.println(itemToDrop + " removed from inventory");
+                        currentRoom.addToRoom(item);
+                    }
+                }
+                case "INVENTORY" -> {
+                    IO.println(player.inventory);
                 }
                 case "HELP" -> {
                     gameUI.help();
