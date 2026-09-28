@@ -13,6 +13,10 @@ public class Player {
         return currentRoom.getRoom();
     }
 
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {
             return false;
@@ -42,6 +46,20 @@ public class Player {
             return false;
         }
         currentRoom = currentRoom.getWest();
+        return true;
+    }
+
+    public void addToInventory(Item item) {
+        inventory.add(item);
+    }
+
+    public boolean takeItem(String itemName) {
+        Item item = currentRoom.takeItem(itemName);
+
+        if (item == null) {
+            return false;
+        }
+        addToInventory(item);
         return true;
     }
 }

@@ -36,6 +36,19 @@ public class Adventure {
                 case "LOOK" -> {
                     IO.println(player.whereAreYou());
                 }
+                case "TAKE" -> {
+                    String itemOnGround = gameUI.take();
+                    Room currentRoom = player.getCurrentRoom();
+                    Item item = currentRoom.takeItem(itemOnGround);
+
+                    if (item == null) {
+                        IO.println(itemOnGround + " not found");
+                    } else {
+                        IO.println(itemOnGround + " added to your inventory");
+                        player.addToInventory(item);
+                    }
+
+                }
                 case "HELP" -> {
                     gameUI.help();
                 }

@@ -13,35 +13,35 @@ public class WorldMap {
 
     private void createWorld() {
         ArrayList<Item> room1Items = new ArrayList<>();
-        room1Items.add(new Item("a beer", "a elephantbeer"));
+        room1Items.add(new Item("beer", "a elephantbeer"));
 
         ArrayList<Item> room2Items = new ArrayList<>();
-        room2Items.add(new Item("a hook", "a long hook to climb the mountain"));
-        room2Items.add(new Item("a ladder", "a small ladder"));
+        room2Items.add(new Item("hook", "a long hook to climb the mountain"));
+        room2Items.add(new Item("ladder", "a small ladder"));
 
         ArrayList<Item> room3Items = new ArrayList<>();
-        room3Items.add(new Item("a flashlight", "a torch"));
+        room3Items.add(new Item("flashlight", "a torch"));
 
         ArrayList<Item> room4Items = new ArrayList<>();
-        room4Items.add(new Item("a crowbar", "to brake down the gates"));
+        room4Items.add(new Item("crowbar", "to brake down the gates"));
 
         ArrayList<Item> room5Items = new ArrayList<>();
-        room5Items.add(new Item("a beer", "a wirboe"));
-        room5Items.add(new Item("a sharwarma", "thats very good"));
-        room5Items.add(new Item("a sunbed", "with a shade"));
+        room5Items.add(new Item("beer", "a wirboe"));
+        room5Items.add(new Item("sharwarma", "thats very good"));
+        room5Items.add(new Item("sunbed", "with a shade"));
 
         ArrayList<Item> room6Items = new ArrayList<>();
-        room6Items.add(new Item("a foot", "with one long nail"));
+        room6Items.add(new Item("foot", "with one long nail"));
 
         ArrayList<Item> room7Items = new ArrayList<>();
 
         ArrayList<Item> room8Items = new ArrayList<>();
-        room8Items.add(new Item("a contract", "Brian Riemer's nationalteam contract"));
+        room8Items.add(new Item("contract", "Brian Riemer's nationalteam contract"));
 
         ArrayList<Item> room9Items = new ArrayList<>();
-        room9Items.add(new Item("a money", "bunny money to pay her"));
-        room9Items.add(new Item("a privateroom", "with a chair"));
-        room9Items.add(new Item("a pingball", "a wierd smelly pingball"));
+        room9Items.add(new Item("money", "bunny money to pay her"));
+        room9Items.add(new Item("privateroom", "with a chair"));
+        room9Items.add(new Item("pingball", "a wierd smelly pingball"));
 
 
         room1 = new Room("1", "a peaceful place with two paths", room1Items);

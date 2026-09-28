@@ -50,6 +50,30 @@ public class Room {
     public Room getWest() {
         return west;
     }
+
+    public Item takeItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                items.remove(i);
+                return item;
+            }
+        }
+        return null;
+    }
+
+
+//    public boolean takeItem(String item) {
+//        for (Item item: items) {
+//            if (item == null) {
+//                IO.println("Item not available");
+//                return false;
+//            }
+//            IO.println(item + " picked up, and added to inventory");
+//            return true;
+//        }
+//    }
 //    public String toString() {
 //        return "You are in room " + name + " \n" + description;
 //    }
