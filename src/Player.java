@@ -53,13 +53,13 @@ public class Player {
         inventory.add(item);
     }
 
-    public boolean takeItem(String itemName) {
-        Item item = currentRoom.takeItem(itemName);
-
-        if (item == null) {
-            return false;
-        }
-        addToInventory(item);
-        return true;
-    }
+//    public boolean takeItem(String itemName) {
+//        Item item = currentRoom.takeItem(itemName);
+//
+//        if (item == null) {
+//            return false;
+//        }
+//        addToInventory(item);
+//        return true;
+//    }
 }

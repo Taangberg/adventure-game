@@ -62,19 +62,4 @@ public class Room {
         }
         return null;
     }
-
-
-//    public boolean takeItem(String item) {
-//        for (Item item: items) {
-//            if (item == null) {
-//                IO.println("Item not available");
-//                return false;
-//            }
-//            IO.println(item + " picked up, and added to inventory");
-//            return true;
-//        }
-//    }
-//    public String toString() {
-//        return "You are in room " + name + " \n" + description;
-//    }
 }

@@ -47,7 +47,9 @@ public class Adventure {
                         IO.println(itemOnGround + " added to your inventory");
                         player.addToInventory(item);
                     }
-
+                }
+                case "INVENTORY" -> {
+                    IO.println(player.inventory);
                 }
                 case "HELP" -> {
                     gameUI.help();
