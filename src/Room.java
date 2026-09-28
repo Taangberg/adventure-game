@@ -63,6 +63,10 @@ public class Room {
         return null;
     }
 
+    public void addToRoom(Item item) {
+        items.add(item);
+    }
+
     public String toString() {
         return "Room " + name + " - " + description + "\n" + items;
     }

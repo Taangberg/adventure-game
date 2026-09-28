@@ -48,13 +48,19 @@ public class Adventure {
                         player.addToInventory(item);
                     }
                 }
-//                case "REMOVE" -> {
-//                    String itemToDrop = gameUI.userInput();
-//                    Room currentRoom = player.getCurrentRoom();
-//                    Item item = player.removeItem(itemToDrop);
-//
-//                    if
-//                }
+                case "REMOVE" -> {
+                    String itemToDrop = gameUI.userInput();
+                    Room currentRoom = player.getCurrentRoom();
+                    Item item = player.removeItem(itemToDrop);
+//                    currentRoom.addToRoom(item);
+
+                    if( item == null) {
+                        IO.println(itemToDrop + " not in your inventory");
+                    } else {
+                        IO.println(itemToDrop + " removed from inventory");
+                        currentRoom.addToRoom(item);
+                    }
+                }
                 case "INVENTORY" -> {
                     IO.println(player.inventory);
                 }
