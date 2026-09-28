@@ -52,9 +52,8 @@ public class Adventure {
                     String itemToDrop = gameUI.userInput();
                     Room currentRoom = player.getCurrentRoom();
                     Item item = player.removeItem(itemToDrop);
-//                    currentRoom.addToRoom(item);
 
-                    if( item == null) {
+                    if (item == null) {
                         IO.println(itemToDrop + " not in your inventory");
                     } else {
                         IO.println(itemToDrop + " removed from inventory");

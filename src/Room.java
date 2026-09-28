@@ -15,10 +15,6 @@ public class Room {
         this.items = items;
     }
 
-    public String getRoom() {
-        return "Room " + name + " " + description + "\n" + items;
-    }
-
     public void setNorth(Room room) {
         this.north = room;
     }

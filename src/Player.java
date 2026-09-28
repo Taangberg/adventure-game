@@ -60,13 +60,4 @@ public class Player {
         }
         return null;
     }
-//    public boolean takeItem(String itemName) {
-//        Item item = currentRoom.takeItem(itemName);
-//
-//        if (item == null) {
-//            return false;
-//        }
-//        addToInventory(item);
-//        return true;
-//    }
 }
