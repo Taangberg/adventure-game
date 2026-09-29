@@ -2,7 +2,7 @@ public class GameUI {
     public String welcome() {
         IO.println("Welcome to game + description of game\n");
         String name = IO.readln("What is your name? ");
-        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: 'GO' + direction \n");
+        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: which coordinate you want to move \n");
         return name;
     }
 
@@ -11,7 +11,7 @@ public class GameUI {
     }
 
     public void help() {
-        IO.println("To move around type: 'GO' + direction");
+        IO.println("To move around type: which coordinate you want to move");
         IO.println("To get information about the current room, type: 'LOOK'");
         IO.println("To pick up a item, type: TAKE + itemName");
         IO.println("To stop the current game type: 'EXIT'");
