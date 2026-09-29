@@ -12,8 +12,8 @@ public class WorldMap {
     }
 
     private void createWorld() {
-        ArrayList<Item> room1Items = new ArrayList<>();
-        room1Items.add(new Item("beer", "a elephantbeer"));
+        ArrayList<Item> room1Items = new ArrayList<>(); // ændre til add items
+        room1Items.add(new Food("beer", "a elephantbeer", -12));
 
         ArrayList<Item> room2Items = new ArrayList<>();
         room2Items.add(new Item("hook", "a long hook to climb the mountain"));
@@ -27,11 +27,12 @@ public class WorldMap {
 
         ArrayList<Item> room5Items = new ArrayList<>();
         room5Items.add(new Item("beer", "a wirboe"));
-        room5Items.add(new Item("sharwarma", "thats very good"));
         room5Items.add(new Item("sunbed", "with a shade"));
 
+        room5Items.add(new Food("sharwarma", "thats very good", 25));
+
         ArrayList<Item> room6Items = new ArrayList<>();
-        room6Items.add(new Item("foot", "with one long nail"));
+        room6Items.add(new Food("foot", "with one long nail", -99));
 
         ArrayList<Item> room7Items = new ArrayList<>();
 
