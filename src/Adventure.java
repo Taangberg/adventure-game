@@ -60,6 +60,9 @@ public class Adventure {
                         currentRoom.addToRoom(item);
                     }
                 }
+                case "HEALTH" -> {
+                    player.getHealth();
+                }
                 case "INVENTORY" -> {
                     IO.println(player.inventory);
                 }
