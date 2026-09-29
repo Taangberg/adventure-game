@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
+    private int health = 100;
+    private int maxHealth = 150;
     ArrayList<Item> inventory;
 
     public Player(Room firstRoom) {
@@ -11,6 +13,27 @@ public class Player {
 
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    public void setHealth() {
+        if (health > maxHealth) {
+            health = maxHealth;
+        } else if (health <= 0 ) {
+            this.health = 0;
+            // add false to gameIsRunning
+        } else {
+            this.health = health;
+        }
+    }
+
+    public void getHealth() {
+        if (health > 75 || health <= 150) {
+            IO.println("Health: " + health + " - You're in perfect health");
+        } else if (health >= 35) {
+            IO.println("Health: " + health + " - Your health is getting low");
+        } else if (health >= 1 ) {
+            IO.println("Health: " + health + " - You're nearing death");
+        }
     }
 
     public boolean goNorth() {
