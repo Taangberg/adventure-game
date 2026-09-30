@@ -28,7 +28,7 @@ public class Player {
 
     public Item findItem(String itemName) {
         for (Item item : inventory) {
-            if (item.getName().equals(itemName)) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }
@@ -36,6 +36,7 @@ public class Player {
     }
 
     public EatResult eat(String itemName) {
+        IO.println("Trying to eat " + itemName);
         Item item = findItem(itemName);
         if (item != null) {
             if (item instanceof Food food) {
@@ -58,7 +59,7 @@ public class Player {
     }
 
     public void getHealth() {
-        if (health > 75 || health <= 150) {
+        if (health > 75) {
             IO.println("Health: " + health + " - You're in perfect health");
         } else if (health >= 35) {
             IO.println("Health: " + health + " - Your health is getting low");
