@@ -26,7 +26,7 @@ public class WorldMap {
         room4Items.add(new Item("crowbar", "to brake down the gates"));
 
         ArrayList<Item> room5Items = new ArrayList<>();
-        room5Items.add(new Item("beer", "a wirboe"));
+        room5Items.add(new Food("wibroe", "a Wibroe", 100));
         room5Items.add(new Item("sunbed", "with a shade"));
 
         room5Items.add(new Food("sharwarma", "thats very good", 25));
