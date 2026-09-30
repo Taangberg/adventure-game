@@ -13,7 +13,6 @@ public class Adventure {
 
     public void startGame() {
 
-
         gameUI.welcome();
 
         IO.println("You are currently in\n" + player.getCurrentRoom());
@@ -61,6 +60,18 @@ public class Adventure {
                         IO.println(itemName + " removed from inventory");
                         currentRoom.addToRoom(item);
                     }
+                }
+                case "EAT" -> {
+                    String itemName = command[1];
+                    player.eat(itemName);
+//                    if (eat == EatResult.EATEN) {
+//                        gameUI.eaten();
+//                    } else if (eat == EatResult.NOT_FOOD){
+//                        gameUI.notFood();
+//                    } else {
+//                        gameUI.notFound();
+//                    }
+
                 }
                 case "HEALTH" -> {
                     player.getHealth();
