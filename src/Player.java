@@ -5,10 +5,13 @@ public class Player {
     private int health = 100;
     private int maxHealth = 150;
     ArrayList<Item> inventory;
+    public EatResult eatResult;
+
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
+
     }
 
     public Room getCurrentRoom() {
@@ -36,7 +39,6 @@ public class Player {
     }
 
     public EatResult eat(String itemName) {
-        IO.println("Trying to eat " + itemName);
         Item item = findItem(itemName);
         if (item != null) {
             if (item instanceof Food food) {
@@ -52,6 +54,7 @@ public class Player {
                 currentRoom.items.remove(roomItem);
                 health += food.getHealthPoints();
                 return EatResult.EATEN;
+
             }
             return EatResult.NOT_FOOD;
         }
