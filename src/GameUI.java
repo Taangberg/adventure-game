@@ -10,6 +10,18 @@ public class GameUI {
         return IO.readln().toUpperCase();
     }
 
+    public void notFood() {
+        IO.println(" is not food, and can't be eaten");
+    }
+
+    public void notFound() {
+        IO.println(" is not found");
+    }
+
+    public void eaten() {
+        IO.println(" is successfully digested");
+    }
+
     public void help() {
         IO.println("To move around type: which coordinate you want to move");
         IO.println("To get information about the current room, type: 'LOOK'");

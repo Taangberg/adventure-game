@@ -15,6 +15,15 @@ public class Room {
         this.items = items;
     }
 
+    public Item findItem(String itemName) {
+        for (Item item : items) {
+            if (item.getName().equals(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void setNorth(Room room) {
         this.north = room;
     }
