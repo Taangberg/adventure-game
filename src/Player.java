@@ -18,7 +18,7 @@ public class Player {
     public void setHealth() {
         if (health > maxHealth) {
             health = maxHealth;
-        } else if (health <= 0 ) {
+        } else if (health <= 0) {
             this.health = 0;
             // add false to gameIsRunning
         } else {
@@ -26,12 +26,43 @@ public class Player {
         }
     }
 
+    public Item findItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getName().equals(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public EatResult eat(String itemName) {
+        Item item = findItem(itemName);
+        if (item != null) {
+            if (item instanceof Food food) {
+                inventory.remove(item);
+                health += food.getHealthPoints();
+                return EatResult.EATEN;
+            }
+            return EatResult.NOT_FOOD;
+        }
+        Item roomItem = currentRoom.findItem(itemName);
+        if (roomItem != null) {
+            if (roomItem instanceof Food food) {
+                currentRoom.items.remove(roomItem);
+                health += food.getHealthPoints();
+                return EatResult.EATEN;
+            }
+            return EatResult.NOT_FOOD;
+        }
+        return EatResult.NOT_FOUND;
+    }
+
     public void getHealth() {
         if (health > 75 || health <= 150) {
             IO.println("Health: " + health + " - You're in perfect health");
         } else if (health >= 35) {
             IO.println("Health: " + health + " - Your health is getting low");
-        } else if (health >= 1 ) {
+        } else if (health >= 1) {
             IO.println("Health: " + health + " - You're nearing death");
         }
     }
