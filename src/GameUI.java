@@ -18,6 +18,14 @@ public class GameUI {
         IO.println(" is not found");
     }
 
+    public void notWeapon() {
+        IO.println(" is not a weapon, and you can't equip it");
+    }
+
+    public void equipped() {
+        IO.println(" is successfully equipped");
+    }
+
     public void eaten() {
 
         IO.println(" is successfully digested");

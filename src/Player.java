@@ -5,11 +5,13 @@ public class Player {
     private int health = 100;
     private int maxHealth = 150;
     ArrayList<Item> inventory;
+    ArrayList<Weapon> equippedWeapons;
 
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
+        this.equippedWeapons = new ArrayList<>();
 
     }
 
@@ -69,6 +71,20 @@ public class Player {
             IO.println("Health: " + health + " - You're nearing death");
         }
     }
+
+    public Equip equip(String itemName) {
+        Item item = findItem(itemName);
+        if (item != null) {
+            if (item instanceof Weapon weapon) {
+                inventory.remove(item);
+                equippedWeapons.add(weapon);
+                return Equip.EQUIPPED;
+            }
+            return Equip.NOT_WEAPON;
+        }
+        return Equip.NOT_FOUND;
+    }
+
 
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {

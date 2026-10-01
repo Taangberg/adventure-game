@@ -77,8 +77,23 @@ public class Adventure {
                 case "HEALTH" -> {
                     player.getHealth();
                 }
+                case "EQUIP" -> {
+                    String itemName = command[1];
+                    Equip equip = player.equip(itemName);
+                    IO.print(itemName);
+                    if (equip == Equip.EQUIPPED) {
+                        gameUI.equipped();
+                    } else if (equip == Equip.NOT_WEAPON) {
+                        gameUI.notWeapon();
+                    } else {
+                        gameUI.notFound();
+                    }
+                }
                 case "INVENTORY" -> {
                     IO.println(player.inventory);
+                }
+                case "EQUIPPED" -> {
+                    IO.println(player.equippedWeapons);
                 }
                 case "HELP" -> {
                     gameUI.help();

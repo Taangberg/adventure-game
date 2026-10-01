@@ -24,11 +24,13 @@ public class WorldMap {
         Room room9 = new Room("9", "A stripclub, with two paths");
 
         room1.addToRoom(new Food("beer", "a elephantbeer", -12));
+        room1.addToRoom(new RangedWeapon("revolver", "an old revolver", 6));
 
         room2.addToRoom(new Item("hook", "a long hook to climb the mountain"));
         room2.addToRoom(new Item("ladder", "a small ladder"));
 
         room3.addToRoom(new Item("torch", "a torch"));
+        room3.addToRoom(new MeleeWeapon("sword", "a long sharp sword"));
 
         room4.addToRoom(new Item("crowbar", "a crowbar to brake down the gates"));
         room4.addToRoom(new Food("wiibroe", "a Wiibroe", 100));
