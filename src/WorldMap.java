@@ -12,48 +12,37 @@ public class WorldMap {
     }
 
     private void createWorld() {
-        ArrayList<Item> room1Items = new ArrayList<>(); // ændre til add items
-        room1Items.add(new Food("beer", "a elephantbeer", -12));
 
-        ArrayList<Item> room2Items = new ArrayList<>();
-        room2Items.add(new Item("hook", "a long hook to climb the mountain"));
-        room2Items.add(new Item("ladder", "a small ladder"));
+        room1 = new Room("1", "A peaceful place with two paths");
+        Room room2 = new Room("2", "A dangerous mountain cliff with two paths");
+        Room room3 = new Room("3", "A spooky dark forest, with two paths");
+        Room room4 = new Room("4", "A scary graveyard, with two paths");
+        Room room5 = new Room("5", "You came to the wonderful beach");
+        Room room6 = new Room("6", "A weird place, with two paths");
+        Room room7 = new Room("7", "A place, with two paths");
+        Room room8 = new Room("8", "A confusing intercross, with 3 paths, and a podium in the middle ");
+        Room room9 = new Room("9", "A stripclub, with two paths");
 
-        ArrayList<Item> room3Items = new ArrayList<>();
-        room3Items.add(new Item("flashlight", "a torch"));
+        room1.addToRoom(new Food("beer", "a elephantbeer", -12));
 
-        ArrayList<Item> room4Items = new ArrayList<>();
-        room4Items.add(new Item("crowbar", "to brake down the gates"));
+        room2.addToRoom(new Item("hook", "a long hook to climb the mountain"));
+        room2.addToRoom(new Item("ladder", "a small ladder"));
 
-        ArrayList<Item> room5Items = new ArrayList<>();
-        room5Items.add(new Food("wibroe", "a Wibroe", 100));
-        room5Items.add(new Item("sunbed", "with a shade"));
+        room3.addToRoom(new Item("torch", "a torch"));
 
-        room5Items.add(new Food("sharwarma", "thats very good", 25));
+        room4.addToRoom(new Item("crowbar", "a crowbar to brake down the gates"));
+        room4.addToRoom(new Food("wiibroe", "a Wiibroe", 100));
+        room4.addToRoom(new Item("sunbed", "a sunbed with a shade"));
 
-        ArrayList<Item> room6Items = new ArrayList<>();
-        room6Items.add(new Food("foot", "with one long nail", -99));
+        room5.addToRoom(new Food("sharwarma", "a spicy sharwarma thats very good", 25));
 
-        ArrayList<Item> room7Items = new ArrayList<>();
+        room6.addToRoom(new Food("foot", "a severed foot with one long nail", -99));
 
-        ArrayList<Item> room8Items = new ArrayList<>();
-        room8Items.add(new Item("contract", "Brian Riemer's nationalteam contract"));
+        room8.addToRoom(new Item("contract", "Brian Riemer's nationalteam contract"));
 
-        ArrayList<Item> room9Items = new ArrayList<>();
-        room9Items.add(new Item("money", "bunny money to pay her"));
-        room9Items.add(new Item("privateroom", "with a chair"));
-        room9Items.add(new Item("pingball", "a wierd smelly pingball"));
-
-
-        room1 = new Room("1", "A peaceful place with two paths", room1Items);
-        Room room2 = new Room("2", "A dangerous mountain cliff with two paths", room2Items);
-        Room room3 = new Room("3", "A spooky dark forest, with two paths", room3Items);
-        Room room4 = new Room("4", "A scary graveyard, with two paths", room4Items);
-        Room room5 = new Room("5", "You came to the wonderful beach", room5Items);
-        Room room6 = new Room("6", "A weird place, with two paths", room6Items);
-        Room room7 = new Room("7", "A place, with two paths", room7Items);
-        Room room8 = new Room("8", "A confusing, with 3 paths", room8Items);
-        Room room9 = new Room("9", "A stripclub, with two paths", room9Items);
+        room9.addToRoom(new Item("money", " bunny money to pay the girls"));
+        room9.addToRoom(new Item("privateroom", " a privateroom with a chair in the center"));
+        room9.addToRoom(new Item("pingball", "a weird smelly ping ball"));
 
 
         room1.setEast(room2);

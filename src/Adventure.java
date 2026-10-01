@@ -22,16 +22,16 @@ public class Adventure {
             String[] command = gameUI.userInput().split(" ");
 
             switch (command[0]) {
-                case "NORTH","N" -> {
+                case "NORTH", "N" -> {
                     IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north!\n" + player.getCurrentRoom());
                 }
-                case "SOUTH","S" -> {
+                case "SOUTH", "S" -> {
                     IO.println(!player.goSouth() ? "There is no way for me to go south" : "Going south\n" + player.getCurrentRoom());
                 }
-                case "WEST","W" -> {
+                case "WEST", "W" -> {
                     IO.println(!player.goWest() ? "There is no way for me to go west" : "Going west\n" + player.getCurrentRoom());
                 }
-                case "EAST","E" -> {
+                case "EAST", "E" -> {
                     IO.println(!player.goEast() ? "There is no way for me to go east" : "Going east\n" + player.getCurrentRoom());
                 }
                 case "LOOK" -> {
@@ -61,13 +61,13 @@ public class Adventure {
                         currentRoom.addToRoom(item);
                     }
                 }
-                case "EAT","DRINK" -> {
+                case "EAT", "DRINK" -> {
                     String itemName = command[1];
                     EatResult eat = player.eat(itemName);
                     IO.print(itemName);
                     if (eat == EatResult.EATEN) {
                         gameUI.eaten();
-                    } else if (eat == EatResult.NOT_FOOD){
+                    } else if (eat == EatResult.NOT_FOOD) {
                         gameUI.notFood();
                     } else {
                         gameUI.notFound();

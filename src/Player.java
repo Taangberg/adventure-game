@@ -5,7 +5,6 @@ public class Player {
     private int health = 100;
     private int maxHealth = 150;
     ArrayList<Item> inventory;
-    public EatResult eatResult;
 
 
     public Player(Room firstRoom) {

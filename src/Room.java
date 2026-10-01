@@ -9,10 +9,10 @@ public class Room {
     Room west;
     ArrayList<Item> items;
 
-    public Room(String name, String description, ArrayList<Item> items) {
+    public Room(String name, String description) {
         this.name = name;
         this.description = description;
-        this.items = items;
+        this.items = new ArrayList<>();
     }
 
     public Item findItem(String itemName) {
@@ -72,7 +72,16 @@ public class Room {
         items.add(item);
     }
 
+
     public String toString() {
-        return "Room " + name + " - " + description + "\n" + items;
+        if (items.isEmpty()) {
+            return "Room " + name + " - " + description + "\n" + "In here there is nothing";
+        }
+        String a = "Room" + name + " - " + description + "\n" + "In here there is: ";
+        for (Item item : items) {
+            a += item + ", ";
+        }
+
+        return a;
     }
 }

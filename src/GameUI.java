@@ -9,6 +9,7 @@ public class GameUI {
     public String userInput() {
         return IO.readln().toUpperCase();
     }
+
     public void notFood() {
         IO.println(" is not food, and can't be eaten");
     }
