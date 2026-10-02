@@ -10,7 +10,7 @@ public class MeleeWeapon extends Weapon {
     }
 
     @Override
-    public int use(){
+    public int use() {
         return -1;
     }
 

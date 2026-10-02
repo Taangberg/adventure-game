@@ -92,17 +92,16 @@ public class Adventure {
                     Weapon weapon = player.getEquipedWeapon();
                     if (player.attack()) {
                         int ammo = weapon.getammo();
-                        if (ammo > 0 || ammo ==-1){
-                            gameUI.attacked();
-                            if (weapon instanceof RangedWeapon){
-                                IO.println("ammo: "+ ammo);
-                            }
-                        }
-                        if (ammo==0){
+                        if (ammo > 0) {
+                            gameUI.attackedWithRanged();
+                            IO.println(weapon.getName() + " ammo: " + ammo);
+                        } else if (ammo == 0) {
                             gameUI.noAmmo();
+                        } else if (ammo == -1) {
+                            gameUI.attackedWithMelee();
+                            IO.println(weapon.getName());
                         }
-                    }
-                    else gameUI.noWeaponEquipped();
+                    } else gameUI.noWeaponEquipped();
                 }
                 case "HEALTH" -> {
                     player.getHealth();

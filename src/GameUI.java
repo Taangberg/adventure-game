@@ -30,16 +30,22 @@ public class GameUI {
 
         IO.println(" is successfully digested");
     }
-    public void noWeaponEquipped(){
+
+    public void noWeaponEquipped() {
         IO.println("You don't have any weapon equipped");
     }
-    public void attacked(){
-        IO.println("You attacked your target");
-    }
-    public void noAmmo(){
-        IO.println("You are out of ammo");
+
+    public void attackedWithRanged() {
+        IO.print("You fired the ");
     }
 
+    public void attackedWithMelee() {
+        IO.print("You swung the ");
+    }
+
+    public void noAmmo() {
+        IO.println("You are out of ammo");
+    }
 
 
     public void help() {

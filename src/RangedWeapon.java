@@ -12,12 +12,13 @@ public class RangedWeapon extends Weapon {
     }
 
     @Override
-    public int use(){
+    public int use() {
         ammo--;
         return ammo;
     }
+
     @Override
-    public int getammo(){
+    public int getammo() {
         return ammo;
     }
 }
