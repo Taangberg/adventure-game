@@ -13,4 +13,9 @@ public class RangedWeapon extends Weapon {
         }
         return false;
     }
+
+    @Override
+    public int use(){
+        return ammo -=1;
+    }
 }
