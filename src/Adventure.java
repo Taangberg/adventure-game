@@ -93,7 +93,7 @@ public class Adventure {
                     IO.println(player.inventory);
                 }
                 case "EQUIPPED" -> {
-                    IO.println(player.equippedWeapons);
+                    IO.println(player.getEquipedWeapon());
                 }
                 case "HELP" -> {
                     gameUI.help();

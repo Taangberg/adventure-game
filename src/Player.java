@@ -4,19 +4,22 @@ public class Player {
     private Room currentRoom;
     private int health = 100;
     private int maxHealth = 150;
+    private Weapon equipedWeapon;
     ArrayList<Item> inventory;
-    ArrayList<Weapon> equippedWeapons;
 
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
-        this.equippedWeapons = new ArrayList<>();
 
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    public Weapon getEquipedWeapon(){
+        return equipedWeapon;
     }
 
     public void setHealth() {
@@ -76,8 +79,7 @@ public class Player {
         Item item = findItem(itemName);
         if (item != null) {
             if (item instanceof Weapon weapon) {
-                inventory.remove(item);
-                equippedWeapons.add(weapon);
+                equipedWeapon = weapon;
                 return Equip.EQUIPPED;
             }
             return Equip.NOT_WEAPON;
@@ -85,6 +87,14 @@ public class Player {
         return Equip.NOT_FOUND;
     }
 
+    public boolean attack(){
+        if (equipedWeapon == null){
+            return false;
+        } if (equipedWeapon.canUse()){
+            equipedWeapon.canUse();
+            return true;
+        } return false;
+    }
 
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {
