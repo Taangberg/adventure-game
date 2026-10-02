@@ -3,10 +3,12 @@ public class Adventure {
     private Player player;
     private GameUI gameUI;
 
+
     public Adventure() {
         gameUI = new GameUI();
         worldMap = new WorldMap();
         player = new Player(worldMap.getFirstRoom());
+
     }
 
     boolean gameIsRunning = true;
@@ -23,7 +25,7 @@ public class Adventure {
 
             switch (command[0]) {
                 case "NORTH", "N" -> {
-                    IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north!\n" + player.getCurrentRoom());
+                    IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north\n" + player.getCurrentRoom());
                 }
                 case "SOUTH", "S" -> {
                     IO.println(!player.goSouth() ? "There is no way for me to go south" : "Going south\n" + player.getCurrentRoom());
@@ -74,9 +76,6 @@ public class Adventure {
                     }
 
                 }
-                case "HEALTH" -> {
-                    player.getHealth();
-                }
                 case "EQUIP" -> {
                     String itemName = command[1];
                     Equip equip = player.equip(itemName);
@@ -88,6 +87,25 @@ public class Adventure {
                     } else {
                         gameUI.notFound();
                     }
+                }
+                case "ATTACK" -> {
+                    Weapon weapon = player.getEquipedWeapon();
+                    if (player.attack()) {
+                        int ammo = weapon.getammo();
+                        if (ammo > 0 || ammo ==-1){
+                            gameUI.attacked();
+                            if (weapon instanceof RangedWeapon){
+                                IO.println("ammo: "+ ammo);
+                            }
+                        }
+                        if (ammo==0){
+                            gameUI.noAmmo();
+                        }
+                    }
+                    else gameUI.noWeaponEquipped();
+                }
+                case "HEALTH" -> {
+                    player.getHealth();
                 }
                 case "INVENTORY" -> {
                     IO.println(player.inventory);

@@ -18,7 +18,7 @@ public class Player {
         return currentRoom;
     }
 
-    public Weapon getEquipedWeapon(){
+    public Weapon getEquipedWeapon() {
         return equipedWeapon;
     }
 
@@ -87,13 +87,15 @@ public class Player {
         return Equip.NOT_FOUND;
     }
 
-    public boolean attack(){
-        if (equipedWeapon == null){
+    public boolean attack() {
+        if (equipedWeapon == null) {
             return false;
-        } if (equipedWeapon.canUse()){
-            equipedWeapon.canUse();
+        }
+        if (equipedWeapon.canUse()) {
+            equipedWeapon.use();
             return true;
-        } return false;
+        }
+        return false;
     }
 
     public boolean goNorth() {

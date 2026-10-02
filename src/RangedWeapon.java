@@ -8,14 +8,16 @@ public class RangedWeapon extends Weapon {
 
     @Override
     public boolean canUse() {
-        if (ammo > 0) {
-            return true;
-        }
-        return false;
+        return ammo > 0;
     }
 
     @Override
     public int use(){
-        return ammo -=1;
+        ammo--;
+        return ammo;
+    }
+    @Override
+    public int getammo(){
+        return ammo;
     }
 }

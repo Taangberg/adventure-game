@@ -30,6 +30,17 @@ public class GameUI {
 
         IO.println(" is successfully digested");
     }
+    public void noWeaponEquipped(){
+        IO.println("You don't have any weapon equipped");
+    }
+    public void attacked(){
+        IO.println("You attacked your target");
+    }
+    public void noAmmo(){
+        IO.println("You are out of ammo");
+    }
+
+
 
     public void help() {
         IO.println("To move around type: which coordinate you want to move");
@@ -37,6 +48,7 @@ public class GameUI {
         IO.println("To pick up a item, type: TAKE + itemName");
         IO.println("To stop the current game type: 'EXIT'");
     }
+
 
     public void exit() {
         IO.println("Thanks for playing.");

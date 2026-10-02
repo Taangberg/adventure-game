@@ -13,4 +13,10 @@ public class MeleeWeapon extends Weapon {
     public int use(){
         return -1;
     }
+
+    @Override
+    public int getammo() {
+        return -1;
+    }
+
 }
