@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class WorldMap {
     private Room room1;
+    private Enemy enemy;
 
     public WorldMap() {
         createWorld();
@@ -24,13 +25,14 @@ public class WorldMap {
         Room room9 = new Room("9", "A stripclub, with two paths");
 
         room1.addToRoom(new Food("beer", "a elephantbeer", -12));
-        room1.addToRoom(new RangedWeapon("revolver", "an old revolver", 6));
+        room1.addToRoom(new RangedWeapon("revolver", "an old revolver",25, 6));
 
         room2.addToRoom(new Item("hook", "a long hook to climb the mountain"));
         room2.addToRoom(new Item("ladder", "a small ladder"));
 
+
         room3.addToRoom(new Item("torch", "a torch"));
-        room3.addToRoom(new MeleeWeapon("sword", "a long sharp sword"));
+        room3.addToRoom(new MeleeWeapon("sword", "a long sharp sword",20));
 
         room4.addToRoom(new Item("crowbar", "a crowbar to brake down the gates"));
         room4.addToRoom(new Food("wiibroe", "a Wiibroe", 100));
@@ -45,6 +47,10 @@ public class WorldMap {
         room9.addToRoom(new Item("money", " bunny money to pay the girls"));
         room9.addToRoom(new Item("privateroom", " a privateroom with a chair in the center"));
         room9.addToRoom(new Item("pingball", "a weird smelly ping ball"));
+
+        //Enemies
+        Weapon trollWeapon=new MeleeWeapon("club", " skeleton club",20);
+        Enemy troll = new Enemy("Troll", "disgusting short fat troll", 50,trollWeapon,room1);
 
 
         room1.setEast(room2);
