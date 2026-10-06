@@ -24,33 +24,33 @@ public class WorldMap {
         Room room8 = new Room("8", "A confusing intercross, with 3 paths, and a podium in the middle ");
         Room room9 = new Room("9", "A stripclub, with two paths");
 
-        room1.addToRoom(new Food("beer", "a elephantbeer", -12));
-        room1.addToRoom(new RangedWeapon("revolver", "an old revolver",25, 6));
+        room1.addItemToRoom(new Food("beer", "elephantbeer", -12));
+        room1.addItemToRoom(new RangedWeapon("revolver", "old revolver", 25, 6));
 
-        room2.addToRoom(new Item("hook", "a long hook to climb the mountain"));
-        room2.addToRoom(new Item("ladder", "a small ladder"));
+        room2.addItemToRoom(new Item("hook", "long hook to climb the mountain"));
+        room2.addItemToRoom(new Item("ladder", "small ladder"));
 
 
-        room3.addToRoom(new Item("torch", "a torch"));
-        room3.addToRoom(new MeleeWeapon("sword", "a long sharp sword",20));
+        room3.addItemToRoom(new Item("torch", "torch"));
+        room3.addItemToRoom(new MeleeWeapon("sword", "long sharp sword", 20));
 
-        room4.addToRoom(new Item("crowbar", "a crowbar to brake down the gates"));
-        room4.addToRoom(new Food("wiibroe", "a Wiibroe", 100));
-        room4.addToRoom(new Item("sunbed", "a sunbed with a shade"));
+        room4.addItemToRoom(new Item("crowbar", "crowbar to brake down the gates"));
+        room4.addItemToRoom(new Food("wiibroe", "Wiibroe", 100));
+        room4.addItemToRoom(new Item("sunbed", "sunbed with a shade"));
 
-        room5.addToRoom(new Food("sharwarma", "a spicy sharwarma thats very good", 25));
+        room5.addItemToRoom(new Food("sharwarma", "spicy sharwarma thats very good", 25));
 
-        room6.addToRoom(new Food("foot", "a severed foot with one long nail", -99));
+        room6.addItemToRoom(new Food("foot", "severed foot with one long nail", -99));
 
-        room8.addToRoom(new Item("contract", "Brian Riemer's nationalteam contract"));
+        room8.addItemToRoom(new Item("contract", "Brian Riemer's nationalteam contract"));
 
-        room9.addToRoom(new Item("money", " bunny money to pay the girls"));
-        room9.addToRoom(new Item("privateroom", " a privateroom with a chair in the center"));
-        room9.addToRoom(new Item("pingball", "a weird smelly ping ball"));
+        room9.addItemToRoom(new Item("money", "bunny money to pay the girls"));
+        room9.addItemToRoom(new Item("privateroom", " privateroom with a chair in the center"));
+        room9.addItemToRoom(new Item("pingball", "weird smelly ping ball"));
 
         //Enemies
-        Weapon trollWeapon=new MeleeWeapon("club", " skeleton club",20);
-        Enemy troll = new Enemy("Troll", "disgusting short fat troll", 50,trollWeapon,room1);
+        Weapon trollWeapon = new MeleeWeapon("club", "skeleton club", 20);
+        room2.addEnemyToRoom(new Enemy("Troll", "disgusting short fat troll", 50, trollWeapon, room2));
 
 
         room1.setEast(room2);

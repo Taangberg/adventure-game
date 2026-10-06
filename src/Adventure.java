@@ -60,7 +60,7 @@ public class Adventure {
                         IO.println(itemName + " not in your inventory");
                     } else {
                         IO.println(itemName + " removed from inventory");
-                        currentRoom.addToRoom(item);
+                        currentRoom.addItemToRoom(item);
                     }
                 }
                 case "EAT", "DRINK" -> {

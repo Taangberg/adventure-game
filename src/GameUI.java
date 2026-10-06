@@ -27,7 +27,6 @@ public class GameUI {
     }
 
     public void eaten() {
-
         IO.println(" is successfully digested");
     }
 

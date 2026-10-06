@@ -9,7 +9,11 @@ public class Enemy {
         this.name = name;
         this.description = description;
         this.health = health;
-        this.enemyWeapon=enemyWeapon;
-        this.enemyRoom=enemyRoom;
+        this.enemyWeapon = enemyWeapon;
+        this.enemyRoom = enemyRoom;
+    }
+
+    public String toString() {
+        return description + ", it has a " + enemyWeapon.description;
     }
 }

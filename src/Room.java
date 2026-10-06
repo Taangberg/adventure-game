@@ -8,11 +8,13 @@ public class Room {
     Room south;
     Room west;
     ArrayList<Item> items;
+    ArrayList<Enemy> enemies;
 
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
 
     public Item findItem(String itemName) {
@@ -68,20 +70,31 @@ public class Room {
         return null;
     }
 
-    public void addToRoom(Item item) {
+    public void addItemToRoom(Item item) {
         items.add(item);
     }
 
+    public void addEnemyToRoom(Enemy enemy) {
+        enemies.add(enemy);
+    }
 
     public String toString() {
-        if (items.isEmpty()) {
-            return "Room " + name + " - " + description + "\n" + "In here there is nothing";
-        }
-        String a = "Room" + name + " - " + description + "\n" + "In here there is: ";
+        String a = "Here you see: a ";
+        String b = "Beware! Here lurks: a ";
         for (Item item : items) {
             a += item + ", ";
         }
+        for (Enemy enemy : enemies) {
+            b += enemy + ", ";
+        }
+        if (items.isEmpty() && enemies.isEmpty()) {
+            return "Room " + name + " - " + description + "\n" + "In here there is nothing";
+        } else if (items.isEmpty()) {
+            return "Room " + name + " - " + description + "\n" + b;
+        } else if (enemies.isEmpty()) {
+            return "Room " + name + " - " + description + "\n" + a;
+        }
 
-        return a;
+        return "Room " + name + " - " + description + "\n" + a + "\n" + b;
     }
 }
