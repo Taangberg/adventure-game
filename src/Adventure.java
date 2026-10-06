@@ -2,6 +2,7 @@ public class Adventure {
     private WorldMap worldMap;
     private Player player;
     private GameUI gameUI;
+    private Enemy enemy;
 
 
     public Adventure() {
@@ -104,7 +105,7 @@ public class Adventure {
                     } else gameUI.noWeaponEquipped();
                 }
                 case "HEALTH" -> {
-                    player.getHealth();
+                    player.showHealth();
                 }
                 case "INVENTORY" -> {
                     IO.println(player.inventory);

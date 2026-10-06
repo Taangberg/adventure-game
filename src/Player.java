@@ -59,7 +59,19 @@ public class Player {
         return EatResult.NOT_FOUND;
     }
 
-    public void getHealth() {
+    public void setHealth(int health) {
+        if (health <= 0) {
+            this.health = 0;
+        } else {
+            this.health = health;
+        }
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void showHealth() {
         if (health > 75) {
             IO.println("Health: " + health + " - You're in perfect health");
         } else if (health >= 35) {
@@ -91,6 +103,10 @@ public class Player {
             return true;
         }
         return false;
+    }
+
+    public void hit(Enemy enemy) {
+        enemy.setHealth(enemy.getHealth() - equipedWeapon.damage);
     }
 
     public boolean goNorth() {

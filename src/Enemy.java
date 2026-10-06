@@ -13,11 +13,24 @@ public class Enemy {
         this.enemyRoom = enemyRoom;
     }
 
+    public int getHealth(){
+        return health;
+    }
+
+    public void setHealth(int health) {
+        if (health <= 0) {
+            this.health = 0;
+        } else {
+            this.health = health;
+        }
+    }
+
     public void enemyAttack() {
         enemyWeapon.use();
     }
 
-    public void enemyHit() {
+    public void enemyHit(Player player) {
+        player.setHealth(player.getHealth() - enemyWeapon.damage);
     }
 
     public String toString() {
