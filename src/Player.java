@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private int health = 100;
+    private int maxHealth = 100;
     private Weapon equipedWeapon;
     ArrayList<Item> inventory;
 
@@ -36,6 +37,9 @@ public class Player {
             if (item instanceof Food food) {
                 inventory.remove(item);
                 health += food.getHealthPoints();
+                if (health > 100) {
+                    health = maxHealth;
+                }
                 return EatResult.EATEN;
             }
             return EatResult.NOT_FOOD;
@@ -45,8 +49,10 @@ public class Player {
             if (roomItem instanceof Food food) {
                 currentRoom.items.remove(roomItem);
                 health += food.getHealthPoints();
+                if (health > 100) {
+                    health = maxHealth;
+                }
                 return EatResult.EATEN;
-
             }
             return EatResult.NOT_FOOD;
         }
@@ -81,6 +87,7 @@ public class Player {
         }
         if (equipedWeapon.canUse()) {
             equipedWeapon.use();
+
             return true;
         }
         return false;

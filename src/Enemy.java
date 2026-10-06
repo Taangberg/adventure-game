@@ -13,6 +13,13 @@ public class Enemy {
         this.enemyRoom = enemyRoom;
     }
 
+    public void enemyAttack() {
+        enemyWeapon.use();
+    }
+
+    public void enemyHit() {
+    }
+
     public String toString() {
         return description + ", it has a " + enemyWeapon.description;
     }
