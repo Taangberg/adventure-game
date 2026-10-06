@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private int health = 100;
-    private int maxHealth = 150;
     private Weapon equipedWeapon;
     ArrayList<Item> inventory;
 
@@ -20,17 +19,6 @@ public class Player {
 
     public Weapon getEquipedWeapon() {
         return equipedWeapon;
-    }
-
-    public void setHealth() {
-        if (health > maxHealth) {
-            health = maxHealth;
-        } else if (health <= 0) {
-            this.health = 0;
-            // add false to gameIsRunning
-        } else {
-            this.health = health;
-        }
     }
 
     public Item findItem(String itemName) {

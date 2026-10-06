@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class WorldMap {
     private Room room1;
-    private Enemy enemy;
 
     public WorldMap() {
         createWorld();
