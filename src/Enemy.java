@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
+
 public class Enemy {
     String name;
     String description;
     int health;
     Weapon enemyWeapon;
     Room enemyRoom;
+
 
     public Enemy(String name, String description, int health, Weapon enemyWeapon, Room enemyRoom) {
         this.name = name;
@@ -12,6 +16,10 @@ public class Enemy {
         this.enemyWeapon = enemyWeapon;
         this.enemyRoom = enemyRoom;
     }
+
+//    public ArrayList<Enemy> getEnemy(String name) {
+//        return enemyRoom.;
+//    }
 
     public int getHealth(){
         return health;
@@ -25,12 +33,15 @@ public class Enemy {
         }
     }
 
-    public void enemyAttack() {
+    public void enemyAttack(Player player) {
         enemyWeapon.use();
+        player.setHealth(player.getHealth() - enemyWeapon.damage);
     }
 
-    public void enemyHit(Player player) {
-        player.setHealth(player.getHealth() - enemyWeapon.damage);
+    public void enemyHit() {
+        if (health == 0) {
+
+        }
     }
 
     public String toString() {

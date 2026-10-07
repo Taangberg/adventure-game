@@ -93,20 +93,20 @@ public class Player {
         return Equip.NOT_FOUND;
     }
 
-    public boolean attack() {
+    public boolean attack(Enemy enemy) {
         if (equipedWeapon == null) {
             return false;
         }
         if (equipedWeapon.canUse()) {
             equipedWeapon.use();
-
+            enemy.setHealth(enemy.getHealth() - equipedWeapon.damage);
             return true;
         }
         return false;
     }
 
-    public void hit(Enemy enemy) {
-        enemy.setHealth(enemy.getHealth() - equipedWeapon.damage);
+    public void hit() {
+
     }
 
     public boolean goNorth() {

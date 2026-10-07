@@ -3,13 +3,13 @@ public class Adventure {
     private Player player;
     private GameUI gameUI;
     private Enemy enemy;
+    private Room room;
 
 
     public Adventure() {
         gameUI = new GameUI();
         worldMap = new WorldMap();
         player = new Player(worldMap.getFirstRoom());
-
     }
 
     boolean gameIsRunning = true;
@@ -91,7 +91,9 @@ public class Adventure {
                 }
                 case "ATTACK" -> {
                     Weapon weapon = player.getEquipedWeapon();
-                    if (player.attack()) {
+                    String enemyName = command[1];
+                    Room enemyInRoom = room.enemies;
+                    if (player.attack(enemyInRoom)) {
                         int ammo = weapon.getammo();
                         if (ammo > 0) {
                             gameUI.attackedWithRanged();
