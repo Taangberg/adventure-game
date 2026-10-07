@@ -17,11 +17,11 @@ public class Enemy {
         this.enemyRoom = enemyRoom;
     }
 
-//    public ArrayList<Enemy> getEnemy(String name) {
-//        return enemyRoom.;
-//    }
+    public String getName() {
+        return name;
+    }
 
-    public int getHealth(){
+    public int getHealth() {
         return health;
     }
 
@@ -33,15 +33,21 @@ public class Enemy {
         }
     }
 
-    public void enemyAttack(Player player) {
-        enemyWeapon.use();
-        player.setHealth(player.getHealth() - enemyWeapon.damage);
+    public void attack(Player player) {
+        player.hit(enemyWeapon);
     }
 
-    public void enemyHit() {
-        if (health == 0) {
+    public void hit(Weapon weapon) {
+        health -= weapon.damage;
 
+        if (health <= 0) {
+            die();
         }
+    }
+
+    private void die() {
+        enemyRoom.removeEnemy(this);
+        enemyRoom.addItemToRoom(enemyWeapon);
     }
 
     public String toString() {

@@ -99,14 +99,18 @@ public class Player {
         }
         if (equipedWeapon.canUse()) {
             equipedWeapon.use();
-            enemy.setHealth(enemy.getHealth() - equipedWeapon.damage);
+            enemy.hit(equipedWeapon);
             return true;
         }
         return false;
     }
 
-    public void hit() {
+    public void hit(Weapon weapon) {
+        health -= weapon.damage;
 
+        if (health < 0) {
+            health = 0;
+        }
     }
 
     public boolean goNorth() {

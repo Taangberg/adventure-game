@@ -26,6 +26,38 @@ public class Room {
         return null;
     }
 
+    public Enemy findEnemy(String enemyName) {
+        for (Enemy enemy : enemies) {
+            if (enemy.getName().equalsIgnoreCase(enemyName)){
+                return enemy;
+            }
+        }
+        return null;
+    }
+
+    public Item takeItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                items.remove(i);
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void addItemToRoom(Item item) {
+        items.add(item);
+    }
+
+    public void addEnemyToRoom(Enemy enemy) {
+        enemies.add(enemy);
+    }
+
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
+
     public void setNorth(Room room) {
         this.north = room;
     }
@@ -56,26 +88,6 @@ public class Room {
 
     public Room getWest() {
         return west;
-    }
-
-    public Item takeItem(String itemName) {
-        for (int i = 0; i < items.size(); i++) {
-            Item item = items.get(i);
-
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                items.remove(i);
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public void addItemToRoom(Item item) {
-        items.add(item);
-    }
-
-    public void addEnemyToRoom(Enemy enemy) {
-        enemies.add(enemy);
     }
 
     public String toString() {

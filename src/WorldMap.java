@@ -49,8 +49,9 @@ public class WorldMap {
 
         //Enemies
         Weapon trollWeapon = new MeleeWeapon("club", "skeleton club", 20);
+        Weapon bearWeapon = new MeleeWeapon("arm", "bear arm from a dead bear", 30);
         room2.addEnemyToRoom(new Enemy("Troll", "disgusting short fat troll", 50, trollWeapon, room2));
-
+        room3.addEnemyToRoom(new Enemy("Bear", "bear that can stand on its feet", 75, bearWeapon, room3));
 
         room1.setEast(room2);
         room1.setSouth(room4);
