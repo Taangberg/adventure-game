@@ -45,6 +45,10 @@ public class GameUI {
     public void noAmmo() {
         IO.println("You are out of ammo");
     }
+    public void gameOver(){
+        IO.println("You died\n>>>>>> GAME OVER <<<<<<");
+    }
+
 
 
     public void help() {

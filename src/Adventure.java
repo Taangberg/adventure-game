@@ -89,7 +89,7 @@ public class Adventure {
                         gameUI.notFound();
                     }
                 }
-                case "ATTACK" -> {
+                case "ATTACK","SHOOT","FIRE" -> {
                     if (command.length > 1) {
                         String enemyName = command[1];
                         Enemy enemyInRoom = player.getCurrentRoom().findEnemy(enemyName);
@@ -107,45 +107,59 @@ public class Adventure {
 
                                         if (ammo > 0) {
                                             gameUI.attackedWithRanged();
+
                                             IO.println(weapon.getName() + " ammo: " + weapon.getammo());
                                         } else if (ammo == -1) {
                                             gameUI.attackedWithMelee();
                                             IO.println(weapon.getName());
                                         }
+                                        IO.println("You dealt " + weapon.damage + " dmg");
+                                        if (enemyInRoom.health > 0) {
+                                            IO.println(enemyInRoom.name + " has: " + enemyInRoom.getHealth() + " hp left.");
+                                        } else {
+                                            IO.println(enemyInRoom.name + " died");
+                                            IO.println(enemyInRoom.name + " dropped "+ enemyInRoom.enemyWeapon.name);
+                                        }
 
                                         if (enemyInRoom.getHealth() > 0) {
                                             enemyInRoom.attack(player);
-                                            IO.println("You have " + player.getHealth() + " health left");
+                                            IO.println(enemyInRoom.name + " dealt " + enemyInRoom.enemyWeapon.damage + " dmg");
+                                            IO.println("You have: " + player.getHealth() + " hp left");
+                                            if (player.getHealth()<=0){
+                                                gameUI.gameOver();
+                                                gameIsRunning=false;
+                                            }
+
+                                        }
                                     }
                                 }
-                            }
-                        } else {
+                            } else {
                                 gameUI.noWeaponEquipped();
                             }
-                    } else {
+                        } else {
                             IO.println("Enemy not found!");
                         }
-                } else {
+                    } else {
                         IO.println("Who do you want to attack?");
                     }
-    }
-            case "HEALTH" -> {
-                player.showHealth();
-            }
-            case "INVENTORY" -> {
-                IO.println(player.inventory);
-            }
-            case "EQUIPPED" -> {
-                IO.println(player.getEquipedWeapon());
-            }
-            case "HELP" -> {
-                gameUI.help();
-            }
-            case "EXIT" -> {
-                gameUI.exit();
-                gameIsRunning = false;
+                }
+                case "HEALTH" -> {
+                    player.showHealth();
+                }
+                case "INVENTORY" -> {
+                    IO.println(player.inventory);
+                }
+                case "EQUIPPED" -> {
+                    IO.println(player.getEquipedWeapon());
+                }
+                case "HELP" -> {
+                    gameUI.help();
+                }
+                case "EXIT" -> {
+                    gameUI.exit();
+                    gameIsRunning = false;
+                }
             }
         }
     }
-}
 }
