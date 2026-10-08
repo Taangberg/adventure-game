@@ -14,7 +14,7 @@ public class Adventure {
 
     public void startGame() {
 
-        gameUI.welcome(player.getCurrentRoom());
+        gameUI.welcome(player.getCurrentRoom().toString());
 
         while (gameIsRunning) {
 
@@ -22,16 +22,17 @@ public class Adventure {
 
             switch (command[0]) {
                 case "NORTH", "N" -> {
-                    IO.println(!player.goNorth() ? "There is no way for me to go north" : "Going north\n" + player.getCurrentRoom());
+                    gameUI.goNorthMsg(player.goNorth(), player.getCurrentRoom().toString());
                 }
                 case "SOUTH", "S" -> {
-                    IO.println(!player.goSouth() ? "There is no way for me to go south" : "Going south\n" + player.getCurrentRoom());
+                    gameUI.goSouthMsg(player.goSouth(), player.getCurrentRoom().toString());
                 }
                 case "WEST", "W" -> {
-                    IO.println(!player.goWest() ? "There is no way for me to go west" : "Going west\n" + player.getCurrentRoom());
+                    gameUI.goWestMsg(player.goWest(),player.getCurrentRoom().toString());
+
                 }
                 case "EAST", "E" -> {
-                    IO.println(!player.goEast() ? "There is no way for me to go east" : "Going east\n" + player.getCurrentRoom());
+                    gameUI.goEastMsg(player.goEast(),player.getCurrentRoom().toString());
                 }
                 case "LOOK" -> {
                     IO.println(player.getCurrentRoom());
@@ -111,17 +112,15 @@ public class Adventure {
 
                                                 if (ammo > 0) {
                                                     gameUI.attackedWithRanged();
-
-                                                    IO.println(weapon.getName() + " ammo: " + weapon.getammo());
+                                                    gameUI.rangedWepAmmo(weapon.getName(), weapon.getammo());
                                                 } else if (ammo == -1) {
-                                                    gameUI.attackedWithMelee();
-                                                    IO.println(weapon.getName());
+                                                    gameUI.attackedWithMelee(weapon.getName());
                                                 }
-                                                IO.println("You dealt " + weapon.damage + " dmg");
+                                                gameUI.playerDamageDealt(weapon.damage);
                                                 if (enemyInRoom.health > 0) {
-                                                    IO.println(enemyInRoom.name + " has: " + enemyInRoom.getHealth() + " hp left.");
+                                                    gameUI.enemyHpLeft(enemyInRoom.name,enemyInRoom.getHealth());
                                                 } else {
-                                                    IO.println(enemyInRoom.name + " died");
+                                                    gameUI.enemyDied(enemyInRoom.name);
                                                     gameUI.enemyDroppedWep(enemyInRoom.name, enemyInRoom.enemyWeapon.name);
                                                 }
 

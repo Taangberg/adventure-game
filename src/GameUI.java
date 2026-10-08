@@ -1,8 +1,8 @@
 public class GameUI {
-    public String welcome(Room currentRoom) {
+    public String welcome(String roomName) {
         IO.println("Welcome to game + description of game\n");
         String name = IO.readln("What is your name? ");
-        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: which coordinate you want to move \nYou are currently in\n"+currentRoom);
+        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: which coordinate you want to move \nYou are currently in\n"+roomName);
 
         return name;
     }
@@ -52,8 +52,11 @@ public class GameUI {
         IO.print("You fired the ");
     }
 
-    public void attackedWithMelee() {
-        IO.print("You swung the ");
+    public void attackedWithMelee(String weapon) {
+        IO.print("You swung the "+ weapon);
+    }
+    public void rangedWepAmmo(String weapon, int ammo){
+        IO.println(weapon + " ammo: " +ammo);
     }
 
     public void noAmmo() {
@@ -71,11 +74,20 @@ public class GameUI {
     public void playerHealthLeft(int getHealth) {
         IO.println("You have: " + getHealth + " hp left");
     }
+    public void playerDamageDealt(int damage){
+        IO.println("You dealt " + damage + " dmg");
+    }
     public void enemyDamageDealt(String name, int damage) {
         IO.println(name + " dealt " + damage + " dmg");
     }
     public void enemyDroppedWep(String name, String wepName) {
         IO.println(name + " dropped " + wepName);
+    }
+    public void enemyDied(String name){
+        IO.println(name+ " died");
+    }
+    public void enemyHpLeft(String enemyName, int enemyHp){
+        IO.println(enemyName + " has: " + enemyHp + " hp left.");
     }
     public void help() {
         IO.println("To move around type: which coordinate you want to move");
@@ -88,6 +100,24 @@ public class GameUI {
     public void exit() {
         IO.println("Thanks for playing.");
         IO.println("Goodbye");
+
+    }
+
+    public void goNorthMsg(boolean goNorth, String roomName) {
+        IO.println(goNorth ? "Going north\n" + roomName : "There is no way for me to go north"  );
+    }
+
+    public void goSouthMsg(boolean goSouth, String roomName) {
+        IO.println(goSouth ? "Going south\n" + roomName : "There is no way for me to go south");
+    }
+
+    public void goWestMsg(boolean goWest, String roomName) {
+        IO.println(goWest ? "Going west\n" +roomName : "There is no way for me to go west");
+
+    }
+
+    public void goEastMsg(boolean goEast, String roomName) {
+        IO.println(goEast ? "Going east\n" + roomName : "There is no way for me to go east");
 
     }
 }
