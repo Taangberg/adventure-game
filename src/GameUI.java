@@ -1,8 +1,11 @@
 public class GameUI {
     public String welcome(String roomName) {
-        IO.println("Welcome to game + description of game\n");
+        IO.println("\n\t>>>>> Dimensions & Dollar Bills <<<<<\n\n" +
+                "You wake up in a peaceful clearing with an Elephant Beer in your hand and an old revolver\ntucked into your belt. Ahead lies a surreal odyssey through dimensions that range from\nthe deeply unsettling to the downright absurd.\n\n" +
+                "Your journey will take you across treacherous mountain cliffs, through spooky dark\nforests, and past a scary graveyard where you can scavenge for Wiibroe beers and a\nsunbed. Along the way, the laws of physics collapse in a room where the floor is the\nceiling, and you will face the macabre sight of a familiar donkey corpse split in half rotting\nin a swamp.\n\n" +
+                "After navigating a confusing intercross, you will finally stand before the doors of the\nprivate room. Behind them lies no dragon or demon, but the ultimate endgame challenge:\nThe Final Boss—a ruthless stripper waiting in the neon-lit smoke. To survive this final\nencounter, you must utilize everything you have gathered, from your trusty crowbar and\nspicy shawarmas to your stash of bunny money. Can you make it out of the VIP lounge\nalive?\n\n");
         String name = IO.readln("What is your name? ");
-        IO.println("\nHello " + name + "\nTo move around the labyrinth, type: which coordinate you want to move \nYou are currently in\n"+roomName);
+        IO.println("\nHello " + name + "\nIf you need help, type: HELP\nYou are currently in\n"+roomName);
 
         return name;
     }
@@ -93,10 +96,38 @@ public class GameUI {
         IO.println(enemyName + " has: " + enemyHp + " hp left.");
     }
     public void help() {
-        IO.println("To move around type: which coordinate you want to move");
-        IO.println("To get information about the current room, type: 'LOOK'");
-        IO.println("To pick up a item, type: TAKE + itemName");
-        IO.println("To stop the current game type: 'EXIT'");
+        IO.println("""
+                
+                MOVEMENT & NAVIGATION
+                
+                • NORTH / N: to move north.
+                • SOUTH / S: to move south.
+                • EAST / E: to move east.
+                • WEST / W: to move west.
+                • LOOK: Examine the current room.
+                
+                ITEM MANAGEMENT
+                
+                • TAKE [item]: Pick up an item.
+                • REMOVE / DROP [item]: Drop an item.
+                • EAT / DRINK [food/drink]: Consume edible.
+                
+                COMBAT & EQUIPMENT
+                
+                • EQUIP [weapon]: Equip a weapon from your inventory.
+                • ATTACK / SHOOT / FIRE [enemy]: Attack a specific enemy.
+                • EQUIPPED: Displays the weapon you are currently holding
+                	• Melee weapons have infinite durability, while ranged weapons require ammunition.
+                	• Watch out! If the enemy survives your attack, they will strike back immediately.
+                
+                
+                STATUS & SYSTEM
+                
+                • HEALTH: Check your current health.
+                • INVENTORY: Open your backpack.
+                • HELP: Displays this menu
+                • EXIT: Immediately closes the game.
+                """);
     }
 
 
