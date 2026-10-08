@@ -16,9 +16,7 @@ public class Adventure {
 
     public void startGame() {
 
-        gameUI.welcome();
-
-        IO.println("You are currently in\n" + player.getCurrentRoom());
+        gameUI.welcome(player.getCurrentRoom());
 
         while (gameIsRunning) {
 
@@ -46,21 +44,21 @@ public class Adventure {
                     Item item = currentRoom.takeItem(itemName);
 
                     if (item == null) {
-                        IO.println(itemName + " not found");
+                        gameUI.itemNotFound(itemName);
                     } else {
-                        IO.println(itemName + " added to your inventory");
+                        gameUI.itemAddedToInventory(itemName);
                         player.addToInventory(item);
                     }
                 }
-                case "REMOVE" -> {
+                case "REMOVE","DROP" -> {
                     String itemName = command[1];
                     Room currentRoom = player.getCurrentRoom();
                     Item item = player.removeItem(itemName);
 
                     if (item == null) {
-                        IO.println(itemName + " not in your inventory");
+                        gameUI.itemNotInInventory(itemName);
                     } else {
-                        IO.println(itemName + " removed from inventory");
+                        gameUI.itemDropped(itemName);
                         currentRoom.addItemToRoom(item);
                     }
                 }
@@ -89,7 +87,7 @@ public class Adventure {
                         gameUI.notFound();
                     }
                 }
-                case "ATTACK","SHOOT","FIRE" -> {
+                case "ATTACK", "SHOOT", "FIRE" -> {
                     if (command.length > 1) {
                         String enemyName = command[1];
                         Enemy enemyInRoom = player.getCurrentRoom().findEnemy(enemyName);
@@ -118,16 +116,16 @@ public class Adventure {
                                             IO.println(enemyInRoom.name + " has: " + enemyInRoom.getHealth() + " hp left.");
                                         } else {
                                             IO.println(enemyInRoom.name + " died");
-                                            IO.println(enemyInRoom.name + " dropped "+ enemyInRoom.enemyWeapon.name);
+                                            gameUI.enemyDroppedWep(enemyInRoom.name, enemyInRoom.enemyWeapon.name);
                                         }
 
                                         if (enemyInRoom.getHealth() > 0) {
                                             enemyInRoom.attack(player);
-                                            IO.println(enemyInRoom.name + " dealt " + enemyInRoom.enemyWeapon.damage + " dmg");
-                                            IO.println("You have: " + player.getHealth() + " hp left");
-                                            if (player.getHealth()<=0){
+                                            gameUI.enemyDamageDealt(enemyInRoom.name, enemyInRoom.enemyWeapon.damage);
+                                            gameUI.playerHealthLeft(player.getHealth());
+                                            if (player.getHealth() <= 0) {
                                                 gameUI.gameOver();
-                                                gameIsRunning=false;
+                                                gameIsRunning = false;
                                             }
 
                                         }
@@ -137,10 +135,10 @@ public class Adventure {
                                 gameUI.noWeaponEquipped();
                             }
                         } else {
-                            IO.println("Enemy not found!");
+                            gameUI.noEnemyFound();
                         }
                     } else {
-                        IO.println("Who do you want to attack?");
+                        gameUI.missSpelledEnemy();
                     }
                 }
                 case "HEALTH" -> {
