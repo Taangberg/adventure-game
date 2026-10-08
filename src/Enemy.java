@@ -33,8 +33,16 @@ public class Enemy {
         }
     }
 
-    public void attack(Player player) {
-        player.hit(enemyWeapon);
+    public boolean attack(Player player) {
+        if (enemyWeapon == null) {
+            return false;
+        }
+        if (enemyWeapon.canUse()) {
+            enemyWeapon.use();
+            player.hit(enemyWeapon);
+            return true;
+        }
+        return false;
     }
 
     public void hit(Weapon weapon) {
