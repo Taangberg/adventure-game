@@ -2,8 +2,6 @@ public class Adventure {
     private WorldMap worldMap;
     private Player player;
     private GameUI gameUI;
-    private Enemy enemy;
-    private Room room;
 
 
     public Adventure() {
@@ -39,125 +37,135 @@ public class Adventure {
                     IO.println(player.getCurrentRoom());
                 }
                 case "TAKE" -> {
-                    String itemName = command[1];
-                    Room currentRoom = player.getCurrentRoom();
-                    Item item = currentRoom.takeItem(itemName);
-
-                    if (item == null) {
-                        gameUI.itemNotFound(itemName);
-                    } else {
-                        gameUI.itemAddedToInventory(itemName);
-                        player.addToInventory(item);
-                    }
-                }
-                case "REMOVE","DROP" -> {
-                    String itemName = command[1];
-                    Room currentRoom = player.getCurrentRoom();
-                    Item item = player.removeItem(itemName);
-
-                    if (item == null) {
-                        gameUI.itemNotInInventory(itemName);
-                    } else {
-                        gameUI.itemDropped(itemName);
-                        currentRoom.addItemToRoom(item);
-                    }
-                }
-                case "EAT", "DRINK" -> {
-                    String itemName = command[1];
-                    EatResult eat = player.eat(itemName);
-                    IO.print(itemName);
-                    if (eat == EatResult.EATEN) {
-                        gameUI.eaten();
-                    } else if (eat == EatResult.NOT_FOOD) {
-                        gameUI.notFood();
-                    } else {
-                        gameUI.notFound();
-                    }
-
-                }
-                case "EQUIP" -> {
-                    String itemName = command[1];
-                    Equip equip = player.equip(itemName);
-                    IO.print(itemName);
-                    if (equip == Equip.EQUIPPED) {
-                        gameUI.equipped();
-                    } else if (equip == Equip.NOT_WEAPON) {
-                        gameUI.notWeapon();
-                    } else {
-                        gameUI.notFound();
-                    }
-                }
-                case "ATTACK", "SHOOT", "FIRE" -> {
                     if (command.length > 1) {
-                        String enemyName = command[1];
-                        Enemy enemyInRoom = player.getCurrentRoom().findEnemy(enemyName);
+                        String itemName = command[1];
+                        Room currentRoom = player.getCurrentRoom();
+                        Item item = currentRoom.takeItem(itemName);
 
-                        if (enemyInRoom != null) {
-                            Weapon weapon = player.getEquipedWeapon();
+                        if (item == null) {
+                            gameUI.itemNotFound(itemName);
+                        } else {
+                            gameUI.itemAddedToInventory(itemName);
+                            player.addToInventory(item);
+                        }
+                    }
+                }
+                case "REMOVE", "DROP" -> {
+                    if (command.length > 1) {
+                        String itemName = command[1];
+                        Room currentRoom = player.getCurrentRoom();
+                        Item item = player.removeItem(itemName);
 
-                            if (weapon != null) {
-                                int ammo = weapon.getammo();
-
-                                if (ammo == 0) {
-                                    gameUI.noAmmo();
+                        if (item == null) {
+                            gameUI.itemNotInInventory(itemName);
+                        } else {
+                            gameUI.itemDropped(itemName);
+                            currentRoom.addItemToRoom(item);
+                        }
+                    }
+                }
+                        case "EAT", "DRINK" -> {
+                            if (command.length > 1) {
+                                String itemName = command[1];
+                                EatResult eat = player.eat(itemName);
+                                IO.print(itemName);
+                                if (eat == EatResult.EATEN) {
+                                    gameUI.eaten();
+                                } else if (eat == EatResult.NOT_FOOD) {
+                                    gameUI.notFood();
                                 } else {
-                                    if (player.attack(enemyInRoom)) {
+                                    gameUI.notFound();
+                                }
+                            }
+                        }
 
-                                        if (ammo > 0) {
-                                            gameUI.attackedWithRanged();
+                        case "EQUIP" -> {
+                            if (command.length > 1) {
+                                String itemName = command[1];
+                                Equip equip = player.equip(itemName);
+                                IO.print(itemName);
+                                if (equip == Equip.EQUIPPED) {
+                                    gameUI.equipped();
+                                } else if (equip == Equip.NOT_WEAPON) {
+                                    gameUI.notWeapon();
+                                } else {
+                                    gameUI.notFound();
+                                }
+                            }
+                        }
+                        case "ATTACK", "SHOOT", "FIRE" -> {
+                            if (command.length > 1) {
+                                String enemyName = command[1];
+                                Enemy enemyInRoom = player.getCurrentRoom().findEnemy(enemyName);
 
-                                            IO.println(weapon.getName() + " ammo: " + weapon.getammo());
-                                        } else if (ammo == -1) {
-                                            gameUI.attackedWithMelee();
-                                            IO.println(weapon.getName());
-                                        }
-                                        IO.println("You dealt " + weapon.damage + " dmg");
-                                        if (enemyInRoom.health > 0) {
-                                            IO.println(enemyInRoom.name + " has: " + enemyInRoom.getHealth() + " hp left.");
+                                if (enemyInRoom != null) {
+                                    Weapon weapon = player.getEquipedWeapon();
+
+                                    if (weapon != null) {
+                                        int ammo = weapon.getammo();
+
+                                        if (ammo == 0) {
+                                            gameUI.noAmmo();
                                         } else {
-                                            IO.println(enemyInRoom.name + " died");
-                                            gameUI.enemyDroppedWep(enemyInRoom.name, enemyInRoom.enemyWeapon.name);
-                                        }
+                                            if (player.attack(enemyInRoom)) {
 
-                                        if (enemyInRoom.getHealth() > 0) {
-                                            enemyInRoom.attack(player);
-                                            gameUI.enemyDamageDealt(enemyInRoom.name, enemyInRoom.enemyWeapon.damage);
-                                            gameUI.playerHealthLeft(player.getHealth());
-                                            if (player.getHealth() <= 0) {
-                                                gameUI.gameOver();
-                                                gameIsRunning = false;
+                                                if (ammo > 0) {
+                                                    gameUI.attackedWithRanged();
+
+                                                    IO.println(weapon.getName() + " ammo: " + weapon.getammo());
+                                                } else if (ammo == -1) {
+                                                    gameUI.attackedWithMelee();
+                                                    IO.println(weapon.getName());
+                                                }
+                                                IO.println("You dealt " + weapon.damage + " dmg");
+                                                if (enemyInRoom.health > 0) {
+                                                    IO.println(enemyInRoom.name + " has: " + enemyInRoom.getHealth() + " hp left.");
+                                                } else {
+                                                    IO.println(enemyInRoom.name + " died");
+                                                    gameUI.enemyDroppedWep(enemyInRoom.name, enemyInRoom.enemyWeapon.name);
+                                                }
+
+                                                if (enemyInRoom.getHealth() > 0) {
+                                                    enemyInRoom.attack(player);
+                                                    gameUI.enemyDamageDealt(enemyInRoom.name, enemyInRoom.enemyWeapon.damage);
+                                                    gameUI.playerHealthLeft(player.getHealth());
+                                                    if (player.getHealth() <= 0) {
+                                                        gameUI.gameOver();
+                                                        gameIsRunning = false;
+                                                    }
+
+                                                }
                                             }
-
                                         }
+                                    } else {
+                                        gameUI.noWeaponEquipped();
                                     }
+                                } else {
+                                    gameUI.noEnemyFound();
                                 }
                             } else {
-                                gameUI.noWeaponEquipped();
+                                gameUI.missSpelledEnemy();
                             }
-                        } else {
-                            gameUI.noEnemyFound();
                         }
-                    } else {
-                        gameUI.missSpelledEnemy();
-                    }
+                        case "HEALTH" -> {
+                            player.showHealth();
+                        }
+                        case "INVENTORY" -> {
+                            IO.println(player.inventory);
+                        }
+                        case "EQUIPPED" -> {
+                            IO.println(player.getEquipedWeapon());
+                        }
+                        case "HELP" -> {
+                            gameUI.help();
+                        }
+                        case "EXIT" -> {
+                            gameUI.exit();
+                            gameIsRunning = false;
+                        }
+
                 }
-                case "HEALTH" -> {
-                    player.showHealth();
-                }
-                case "INVENTORY" -> {
-                    IO.println(player.inventory);
-                }
-                case "EQUIPPED" -> {
-                    IO.println(player.getEquipedWeapon());
-                }
-                case "HELP" -> {
-                    gameUI.help();
-                }
-                case "EXIT" -> {
-                    gameUI.exit();
-                    gameIsRunning = false;
-                }
-            }
+
         }
     }
 }
