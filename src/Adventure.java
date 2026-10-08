@@ -2,8 +2,6 @@ public class Adventure {
     private WorldMap worldMap;
     private Player player;
     private GameUI gameUI;
-    private Enemy enemy;
-    private Room room;
 
 
     public Adventure() {
@@ -41,52 +39,59 @@ public class Adventure {
                     IO.println(player.getCurrentRoom());
                 }
                 case "TAKE" -> {
-                    String itemName = command[1];
-                    Room currentRoom = player.getCurrentRoom();
-                    Item item = currentRoom.takeItem(itemName);
+                    if (command.length > 1){
+                        String itemName = command[1];
+                        Room currentRoom = player.getCurrentRoom();
+                        Item item = currentRoom.takeItem(itemName);
 
-                    if (item == null) {
-                        IO.println(itemName + " not found");
-                    } else {
-                        IO.println(itemName + " added to your inventory");
-                        player.addToInventory(item);
+                        if (item == null) {
+                            IO.println(itemName + " not found");
+                        } else {
+                            IO.println(itemName + " added to your inventory");
+                            player.addToInventory(item);
+                        }
                     }
                 }
                 case "REMOVE" -> {
-                    String itemName = command[1];
-                    Room currentRoom = player.getCurrentRoom();
-                    Item item = player.removeItem(itemName);
+                    if (command.length > 1) {
+                        String itemName = command[1];
+                        Room currentRoom = player.getCurrentRoom();
+                        Item item = player.removeItem(itemName);
 
-                    if (item == null) {
-                        IO.println(itemName + " not in your inventory");
-                    } else {
-                        IO.println(itemName + " removed from inventory");
-                        currentRoom.addItemToRoom(item);
+                        if (item == null) {
+                            IO.println(itemName + " not in your inventory");
+                        } else {
+                            IO.println(itemName + " removed from inventory");
+                            currentRoom.addItemToRoom(item);
+                        }
                     }
                 }
                 case "EAT", "DRINK" -> {
-                    String itemName = command[1];
-                    EatResult eat = player.eat(itemName);
-                    IO.print(itemName);
-                    if (eat == EatResult.EATEN) {
-                        gameUI.eaten();
-                    } else if (eat == EatResult.NOT_FOOD) {
-                        gameUI.notFood();
-                    } else {
-                        gameUI.notFound();
+                    if (command.length > 1) {
+                        String itemName = command[1];
+                        EatResult eat = player.eat(itemName);
+                        IO.print(itemName);
+                        if (eat == EatResult.EATEN) {
+                            gameUI.eaten();
+                        } else if (eat == EatResult.NOT_FOOD) {
+                            gameUI.notFood();
+                        } else {
+                            gameUI.notFound();
+                        }
                     }
-
                 }
                 case "EQUIP" -> {
-                    String itemName = command[1];
-                    Equip equip = player.equip(itemName);
-                    IO.print(itemName);
-                    if (equip == Equip.EQUIPPED) {
-                        gameUI.equipped();
-                    } else if (equip == Equip.NOT_WEAPON) {
-                        gameUI.notWeapon();
-                    } else {
-                        gameUI.notFound();
+                    if (command.length > 1){
+                        String itemName = command[1];
+                        Equip equip = player.equip(itemName);
+                        IO.print(itemName);
+                        if (equip == Equip.EQUIPPED) {
+                            gameUI.equipped();
+                        } else if (equip == Equip.NOT_WEAPON) {
+                            gameUI.notWeapon();
+                        } else {
+                            gameUI.notFound();
+                        }
                     }
                 }
                 case "ATTACK","SHOOT","FIRE" -> {
