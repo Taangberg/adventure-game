@@ -11,10 +11,6 @@ public class Item {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public String toString() {
         return description;
     }
