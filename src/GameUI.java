@@ -53,7 +53,7 @@ public class GameUI {
     }
 
     public void attackedWithMelee(String weapon) {
-        IO.print("You swung the "+ weapon);
+        IO.print("You swung the "+ weapon + ". ");
     }
     public void rangedWepAmmo(String weapon, int ammo){
         IO.println(weapon + " ammo: " +ammo);
@@ -70,6 +70,9 @@ public class GameUI {
     }
     public void gameOver(){
         IO.println("You died\n>>>>>> GAME OVER <<<<<<");
+    }
+    public void youWin() {
+        IO.println("Congrats");
     }
     public void playerHealthLeft(int getHealth) {
         IO.println("You have: " + getHealth + " hp left");

@@ -17,7 +17,7 @@ public class WorldMap {
         Room room2 = new Room("2", "A dangerous mountain cliff with two paths");
         Room room3 = new Room("3", "A spooky dark forest, with two paths");
         Room room4 = new Room("4", "A scary graveyard, with two paths");
-        Room room5 = new Room("5", "You came to the wonderful beach");
+        Room room5 = new Room("5", "You came to the wonderful beach, you can only go back");
         Room room6 = new Room("6", "A weird place, where the floor is the celling and the celling is the floor, with two paths");
         Room room7 = new Room("7", "A familiar looking swamp, with a donkey corpse split in half, with two paths");
         Room room8 = new Room("8", "A confusing intercross, with 3 paths, and a podium in the middle ");
